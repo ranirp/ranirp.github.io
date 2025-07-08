@@ -1,9 +1,3 @@
-/**
- * Note: Use position fixed according to your needs
- * Desktop navbar is better positioned at the bottom
- * Mobile navbar is better positioned at bottom right.
- **/
-
 import { cn } from "@/lib/utils";
 import { IconLayoutNavbarCollapse } from "@tabler/icons-react";
 import {
@@ -14,6 +8,7 @@ import {
     useSpring,
     useTransform,
 } from "motion/react";
+
 import { useRef, useState } from "react";
 
 export const FloatingDock = ({
@@ -68,6 +63,8 @@ const FloatingDockMobile = ({
                             >
                                 <a
                                     href={item.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     key={item.title}
                                     className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-50 dark:bg-neutral-900"
                                 >
@@ -166,33 +163,32 @@ function IconContainer({
     const [hovered, setHovered] = useState(false);
 
     return (
-        <a href={href}>
+        <a href={href} target="_blank" rel="noopener noreferrer">            <motion.div
+            ref={ref}
+            style={{ width, height }}
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+            className="relative flex aspect-square items-center justify-center rounded-full bg-gray-200 dark:bg-neutral-800"
+        >
+            <AnimatePresence>
+                {hovered && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 10, x: "-50%" }}
+                        animate={{ opacity: 1, y: 0, x: "-50%" }}
+                        exit={{ opacity: 0, y: 2, x: "-50%" }}
+                        className="absolute -top-8 left-1/2 w-fit rounded-md border border-gray-200 bg-gray-100 px-2 py-0.5 text-xs whitespace-pre text-neutral-700 dark:border-neutral-900 dark:bg-neutral-800 dark:text-white"
+                    >
+                        {title}
+                    </motion.div>
+                )}
+            </AnimatePresence>
             <motion.div
-                ref={ref}
-                style={{ width, height }}
-                onMouseEnter={() => setHovered(true)}
-                onMouseLeave={() => setHovered(false)}
-                className="relative flex aspect-square items-center justify-center rounded-full bg-gray-200 dark:bg-neutral-800"
+                style={{ width: widthIcon, height: heightIcon }}
+                className="flex items-center justify-center"
             >
-                <AnimatePresence>
-                    {hovered && (
-                        <motion.div
-                            initial={{ opacity: 0, y: 10, x: "-50%" }}
-                            animate={{ opacity: 1, y: 0, x: "-50%" }}
-                            exit={{ opacity: 0, y: 2, x: "-50%" }}
-                            className="absolute -top-8 left-1/2 w-fit rounded-md border border-gray-200 bg-gray-100 px-2 py-0.5 text-xs whitespace-pre text-neutral-700 dark:border-neutral-900 dark:bg-neutral-800 dark:text-white"
-                        >
-                            {title}
-                        </motion.div>
-                    )}
-                </AnimatePresence>
-                <motion.div
-                    style={{ width: widthIcon, height: heightIcon }}
-                    className="flex items-center justify-center"
-                >
-                    {icon}
-                </motion.div>
+                {icon}
             </motion.div>
+        </motion.div>
         </a>
     );
 }

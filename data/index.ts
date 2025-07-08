@@ -58,3 +58,26 @@ export const workExperience = [
     ],
   },
 ];
+
+export const dockLinks = [
+  {
+    title: "LinkedIn",
+    icon: "IconBrandLinkedin",
+    href: "https://www.linkedin.com/in/ranikumari/",
+  },
+  {
+    title: "GitHub",
+    icon: "IconBrandGithub",
+    href: "https://github.com/ranirp1",
+  },
+  {
+    title: "Contact",
+    icon: "IconMail",
+    href: "mailto:ranipurohit30@gmail.com",
+  },
+  {
+    title: "Twitter",
+    icon: "IconBrandTwitter",
+    href: "https://x.com/ranipurohit30",
+  }
+];
