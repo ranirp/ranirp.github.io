@@ -352,7 +352,7 @@ export default function ContactForm() {
       <div className="max-w-7xl mx-auto">
         <div id="contact" className="py-14">
           <h1 className="heading text-center">
-            Contact <span className="text-purple ml-2"> Me </span>
+            Connect with me <span className="text-purple"> Worldwide </span>
           </h1>
           <h6 className="mx-4 text-base text-white-200 font-medium text-center mt-4">
             I'd love to hear from you!
@@ -390,7 +390,7 @@ export default function ContactForm() {
             <div className="bg-black-200 rounded-2xl shadow-xl px-8 md:px-16 py-6 border border-white/[0.1] backdrop-blur-sm w-full max-w-2xl">
               <div className="text-center mb-8">
                 <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                  Connect with me <span className="text-purple">Worldwide</span>
+                  Contact <span className="text-purple ml-2"> Me </span>
                 </h2>
                 <p className="text-white-200">
                   Ready to collaborate on your next project? Let's make something amazing together. Drop me a message
