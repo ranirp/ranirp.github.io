@@ -1,5 +1,4 @@
 "use client";
-
 import { FaLocationArrow } from "react-icons/fa6";
 import { projects } from "@/data";
 import { Carousel } from "./ui/Carousel";
@@ -11,32 +10,28 @@ const RecentProjects = () => {
     backgroundColor: "#13162D",
     content: (
       <div className="w-full">
-        <h1 className="font-bold lg:text-3xl md:text-xl text-base line-clamp-1 mb-20 text-center">
+        <h1 className="font-bold lg:text-3xl md:text-xl text-base line-clamp-1 mb-16 text-center">
           {item.title}
         </h1>
 
         <div
           className="relative flex items-center justify-center w-full max-w-xs sm:max-w-md md:max-w-lg h-40 sm:h-56 md:h-72 lg:h-[30vh] mb-1 px-2 sm:px-8 mx-auto"
-          style={{ top: '-24px' }}
+          style={{ top: '-40px' }}
         >
-          <div
-            className="relative w-full h-full overflow-hidden lg:rounded-3xl border border-white/[0.1] flex items-center justify-center"
-            style={{ background: 'url(/bg.png) center/cover no-repeat', backgroundColor: '#13162D' }}
-          >
-            <img
-              src={item.img}
-              alt="cover"
-              className="z-10 object-contain rounded-xl transform rotate-6 hover:rotate-0 transition-transform duration-300 shadow-none"
-              style={{
-                width: '80%',
-                height: '85%',
-                objectFit: 'contain',
-                boxShadow: 'none',
-                position: 'relative',
-              }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent z-20 lg:rounded-3xl pointer-events-none" />
-          </div>
+
+          <img
+            src={item.img}
+            alt="cover"
+            className="z-10 object-contain rounded-xl transform rotate-6 hover:rotate-0 transition-transform duration-300 shadow-none"
+            style={{
+              width: '90%',
+              height: '95%',
+              objectFit: 'cover',
+              boxShadow: 'none',
+              position: 'relative',
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent z-20 lg:rounded-3xl pointer-events-none" />
         </div>
 
         <p
@@ -77,12 +72,12 @@ const RecentProjects = () => {
 
   return (
     <>
-      <div id="projects" className="py-14">
+      <div id="projects" className="py-14 relative z-10">
         <h1 className="heading text-center">
           Recent <span className="text-purple ml-2"> Projects </span>
         </h1>
       </div>
-      <div className="flex items-center justify-center p-2 mt-0">
+      <div className="flex items-center justify-center p-2 mt-0 mb-20 relative z-10">
         <Carousel slides={carouselSlides} />
       </div>
     </>
