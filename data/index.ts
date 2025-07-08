@@ -81,3 +81,89 @@ export const dockLinks = [
     href: "https://x.com/ranipurohit30",
   }
 ];
+
+import { Code, Server, Smartphone, Database, Cloud, Layers, GitBranch, Gift, Wrench } from 'lucide-react';
+
+export const skills = [
+  {
+    id: "frontend",
+    category: "Frontend",
+    icon: Code,
+    title: "Front-end Development",
+    technologies: ["JavaScript (ES6+)", "TypeScript", "React", "Next.js", "Tailwind CSS", "Redux Toolkit"],
+    description: "Built responsive SPAs with component-driven design",
+    span: "md:col-span-4"
+  },
+  {
+    id: "backend",
+    category: "Backend",
+    icon: Server,
+    title: "Back-end and APIs",
+    technologies: ["Node.js", "Express", "Python", "Flask", "FastAPI", "RESTful API design", "OAuth/JWT authentication"],
+    description: "Tested endpoints using Postman & Swagger",
+    span: "md:col-span-4"
+  },
+  {
+    id: "mobile",
+    category: "Mobile",
+    icon: Smartphone,
+    title: "Mobile and Real-Time",
+    technologies: ["React Native", "Kotlin", "Android Studio", "Socket.IO"],
+    description: "Live chat features and cross-platform mobile development",
+    span: "md:col-span-4"
+  },
+  {
+    id: "database",
+    category: "Database",
+    icon: Database,
+    title: "Databases",
+    technologies: ["PostgreSQL", "MongoDB", "MySQL", "SQLite"],
+    description: "Schema design & performance tuning",
+    span: "md:col-span-4"
+  },
+  {
+    id: "cloud",
+    category: "Cloud",
+    icon: Cloud,
+    title: "Cloud and DevOps",
+    technologies: ["Azure", "Google Cloud", "Firebase", "Docker", "Kubernetes", "CI/CD", "GitHub Actions", "Jenkins"],
+    description: "Cloud deployment with containerization and automated pipelines",
+    span: "md:col-span-4"
+  },
+  {
+    id: "architecture",
+    category: "Architecture",
+    icon: Layers,
+    title: "Architecture and Performance",
+    technologies: ["Progressive Web Apps (PWA)", "Responsive design", "Modular components", "SOLID principles", "Clean code (KISS, DRY, YAGNI)"],
+    description: "Modern web architecture following best practices",
+    span: "md:col-span-4"
+  },
+  {
+    id: "development-practices",
+    category: "Development Practices",
+    icon: GitBranch,
+    title: "Development Practices",
+    technologies: ["Agile methodologies", "Test-Driven Development (TDD)"],
+    description: "Agile development with TDD and version control best practices",
+    span: "md:col-span-4"
+  },
+  {
+    id: "version-control",
+    category: "Version Control",
+    icon: Gift,
+    title: "Version Control",
+    technologies: ["Git", "GitHub", "GitLab"],
+    description: "Proficient in version control systems for collaborative development",
+    span: "md:col-span-4"
+  },
+  {
+    id: "tools-ux",
+    category: "Tools & UX",
+    icon: Wrench,
+    title: "Tools and UX",
+    technologies: ["Jira", "Figma"],
+    description: "Project management and design tools for efficient workflow",
+    span: "md:col-span-4"
+  },
+];
