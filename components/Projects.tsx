@@ -2,7 +2,7 @@
 
 import { FaLocationArrow } from "react-icons/fa6";
 import { projects } from "@/data";
-import { Carousel } from "./ui/carousel";
+import { Carousel } from "./ui/Carousel";
 
 const RecentProjects = () => {
   const carouselSlides = projects.map((item) => ({
