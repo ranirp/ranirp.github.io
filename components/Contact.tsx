@@ -6,7 +6,7 @@ import * as LabelPrimitive from "@radix-ui/react-label";
 import dynamic from "next/dynamic";
 
 // Dynamically import the World component
-const World = dynamic(() => import("./ui/globe").then((m) => m.World), {
+const World = dynamic(() => import("./ui/Globe").then((m) => m.World), {
   ssr: false,
 });
 
