@@ -175,9 +175,9 @@ const SkillGridItem = ({
 
 export function SkillsSection() {
     return (
-        <section className="py-16 px-4 max-w-7xl mx-auto">
+        <section id="skills" className="py-20 w-full flex flex-col items-center justify-center min-h-screen">
             {/* Section Header */}
-            <div id="skills" className="text-center mb-12">
+            <div className="w-full flex flex-col justify-center items-center mb-16">
                 <h1 className="heading text-center">
                     Technical <span className="text-purple ml-2"> Skills</span>
                 </h1>
