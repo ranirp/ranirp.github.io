@@ -1,8 +1,11 @@
+import { Code, Server, Smartphone, Database, Cloud, Layers, GitBranch, Workflow, Wrench } from 'lucide-react';
+
 export const navItems = [
   { name: "About", link: "#about" },
-  { name: "Skills", link: "#skills" },
   { name: "Experience", link: "#experience" },
+  { name: "Skills", link: "#skills" },
   { name: "Projects", link: "#projects" },
+  { name: "Publications", link: "#publications" },
   { name: "Contact", link: "#contact" },
 ];
 
@@ -81,8 +84,6 @@ export const dockLinks = [
     href: "https://x.com/ranipurohit30",
   }
 ];
-
-import { Code, Server, Smartphone, Database, Cloud, Layers, GitBranch, Workflow, Wrench } from 'lucide-react';
 
 export const skills = [
   {
@@ -165,5 +166,31 @@ export const skills = [
     technologies: ["Jira", "Figma"],
     description: "Project management and design tools for efficient workflow",
     span: "md:col-span-4"
+  },
+];
+
+export const Publications = [
+  {
+    id: "Patent",
+    title: "Quick Fill Using Sky Locker and Digital Storage",
+    description: "A smart system to quickly and securely fill and retrieve data using a cloud-integrated (sky locker) and digital storage infrastructure for optimized communication workflows with secure SSO authentication for enhanced productivity.",
+    Role: "Co-Inventor",
+    "Patent Office": "India",
+    "Application Number": "202231031977",
+    "Publication Date": "08-07-2022",
+    Status: "Published",
+    "Field of Invention": "Communication",
+    Link: "Complete Specification.pdf",
+  },
+  {
+    id: "Paper",
+    title: "Spypark: The Innovative Mobile Application for Online Parking System ",
+    description: "Discusses the design and impact of a mobile app that revolutionizes urban parking by offering real-time updates and reservation management.",
+    Role: "Co-Author",
+    "Publication": "IEEE Xplore",
+    "Publication Date": "27-06-2024",
+    Status: "Published",
+    "Published In": "2023 IEEE Fifth International Conference on Advances in Electronics, Computers and Communications (ICAECC)",
+    Link: "https://ieeexplore.ieee.org/document/10560130",
   },
 ];
