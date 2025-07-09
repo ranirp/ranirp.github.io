@@ -363,7 +363,7 @@ export default function ContactForm() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center -mt-8">
           {/* Globe Section */}
           <div className="flex flex-col items-center justify-center">
-            <div className="w-full max-w-2xl mx-auto relative overflow-visible h-[500px] lg:h-[600px] -mt-4 lg:-mt-8">
+            <div className="w-full max-w-2xl mx-auto relative overflow- h-[500px] lg:h-[600px] -mt-4 lg:-mt-8">
               <motion.div
                 initial={{
                   opacity: 0,
