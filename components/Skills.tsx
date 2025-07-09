@@ -4,9 +4,9 @@ import { skills } from '@/data';
 import {
     SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiTailwindcss, SiRedux,
     SiNodedotjs, SiExpress, SiPython, SiFlask, SiFastapi, SiPostman, SiSwagger,
-    SiKotlin, SiAndroidstudio, SiSocketdotio, SiJira, SiFigma, SiTestinglibrary,
+    SiAndroidstudio, SiSocketdotio, SiJira, SiTestinglibrary,
     SiPostgresql, SiMongodb, SiMysql, SiSqlite, SiGit, SiGithub, SiGitlab,
-    SiGooglecloud, SiFirebase, SiDocker, SiKubernetes, SiGithubactions, SiJenkins,
+    SiFirebase, SiDocker, SiKubernetes, SiGithubactions, SiJenkins,
 } from 'react-icons/si';
 import { FaCode, FaMobile, FaServer, FaMicrosoft, FaLock, FaRocket, FaLayerGroup, FaTools, FaInfinity, FaCheckCircle } from 'react-icons/fa';
 
@@ -17,10 +17,7 @@ const categoryColors = {
     Database: "from-purple-500/20 to-violet-500/20",
     Mobile: "from-pink-500/20 to-rose-500/20",
     Cloud: "from-orange-500/20 to-amber-500/20",
-    Architecture: "from-indigo-500/20 to-blue-500/20",
     "Development Practices": "from-gray-500/20 to-slate-500/20",
-    "Version Control": "from-teal-500/20 to-cyan-500/20",
-    "Tools & UX": "from-yellow-500/20 to-lime-500/20"
 };
 
 // Enhanced icon colors with more vibrant colors that work on both light and dark backgrounds
@@ -30,10 +27,7 @@ const iconColors = {
     Database: "text-purple-600 dark:text-purple-400",
     Mobile: "text-pink-600 dark:text-pink-400",
     Cloud: "text-orange-600 dark:text-orange-400",
-    Architecture: "text-indigo-600 dark:text-indigo-400",
     "Development Practices": "text-slate-600 dark:text-slate-400",
-    "Version Control": "text-teal-600 dark:text-teal-400",
-    "Tools & UX": "text-yellow-600 dark:text-yellow-400"
 };
 
 // Enhanced technology icon mapping with specific colors for each technology
@@ -45,8 +39,7 @@ const techIcons = {
     'Next.js': { icon: SiNextdotjs, color: 'text-gray-900 dark:text-white' },
     'Tailwind CSS': { icon: SiTailwindcss, color: 'text-cyan-500' },
     'Redux Toolkit': { icon: SiRedux, color: 'text-purple-600' },
-    'Postman': { icon: SiPostman, color: 'text-orange-500' },
-    'Swagger': { icon: SiSwagger, color: 'text-blue-600' },
+
 
     // Backend - with specific colors
     'Node.js': { icon: SiNodedotjs, color: 'text-green-600' },
@@ -54,10 +47,11 @@ const techIcons = {
     'Python': { icon: SiPython, color: 'text-blue-500' },
     'Flask': { icon: SiFlask, color: 'text-gray-700 dark:text-gray-300' },
     'FastAPI': { icon: SiFastapi, color: 'text-teal-600' },
+    'Postman': { icon: SiPostman, color: 'text-orange-500' },
+    'Swagger': { icon: SiSwagger, color: 'text-blue-600' },
 
     // Mobile - with specific colors
     'React Native': { icon: SiReact, color: 'text-cyan-500' },
-    'Kotlin': { icon: SiKotlin, color: 'text-purple-600' },
     'Android Studio': { icon: SiAndroidstudio, color: 'text-green-600' },
     'Socket.IO': { icon: SiSocketdotio, color: 'text-gray-900 dark:text-white' },
 
@@ -69,7 +63,6 @@ const techIcons = {
 
     // Cloud - with specific colors
     'Azure': { icon: FaMicrosoft, color: 'text-blue-600' },
-    'Google Cloud': { icon: SiGooglecloud, color: 'text-blue-500' },
     'Firebase': { icon: SiFirebase, color: 'text-orange-500' },
     'Docker': { icon: SiDocker, color: 'text-blue-600' },
     'Kubernetes': { icon: SiKubernetes, color: 'text-blue-600' },
@@ -83,17 +76,10 @@ const techIcons = {
 
     // Tools - with specific colors
     'Jira': { icon: SiJira, color: 'text-blue-600' },
-    'Figma': { icon: SiFigma, color: 'text-purple-600' },
 
     // Enhanced fallbacks with better icons and colors
-    'RESTful API design': { icon: FaServer, color: 'text-green-600' },
     'OAuth/JWT authentication': { icon: FaLock, color: 'text-red-600' },
-    'Progressive Web Apps (PWA)': { icon: FaRocket, color: 'text-purple-600' },
-    'Responsive design': { icon: FaMobile, color: 'text-pink-600' },
-    'Modular components': { icon: FaLayerGroup, color: 'text-blue-600' },
-    'SOLID principles': { icon: FaCode, color: 'text-indigo-600' },
-    'Clean code (KISS, DRY, YAGNI)': { icon: FaCheckCircle, color: 'text-green-600' },
-    'Agile methodologies': { icon: FaTools, color: 'text-orange-600' },
+    'Agile': { icon: FaTools, color: 'text-orange-600' },
     'Test-Driven Development (TDD)': { icon: SiTestinglibrary, color: 'text-red-600' },
     'CI/CD': { icon: FaInfinity, color: 'text-teal-600' },
 };
@@ -181,9 +167,6 @@ export function SkillsSection() {
                 <h1 className="heading text-center">
                     Technical <span className="text-purple ml-2"> Skills</span>
                 </h1>
-                <h6 className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mt-4">
-                    Full-stack development expertise with modern technologies and best practices
-                </h6>
             </div>
 
             {/* Auto Grid */}
