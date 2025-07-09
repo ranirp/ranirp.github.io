@@ -151,7 +151,7 @@ export const CardMeta = ({ item }: { item: PublicationItem }) => {
                 >
                     {item.id === "Patent" ? (
                         <>
-                            📄 View PDF
+                            📄 View Patent
                         </>
                     ) : (
                         <>
