@@ -82,7 +82,7 @@ export const dockLinks = [
   }
 ];
 
-import { Code, Server, Smartphone, Database, Cloud, Layers, GitBranch, Gift, Wrench } from 'lucide-react';
+import { Code, Server, Smartphone, Database, Cloud, Layers, GitBranch, Workflow, Wrench } from 'lucide-react';
 
 export const skills = [
   {
@@ -99,7 +99,7 @@ export const skills = [
     category: "Backend",
     icon: Server,
     title: "Back-end and APIs",
-    technologies: ["Node.js", "Express", "Python", "Flask", "FastAPI", "RESTful API design", "OAuth/JWT authentication"],
+    technologies: ["Node.js", "Express", "Python", "Flask", "FastAPI", "RESTful API design", "OAuth/JWT authentication", "Postman", "Swagger"],
     description: "Tested endpoints using Postman & Swagger",
     span: "md:col-span-4"
   },
@@ -142,7 +142,7 @@ export const skills = [
   {
     id: "development-practices",
     category: "Development Practices",
-    icon: GitBranch,
+    icon: Workflow,
     title: "Development Practices",
     technologies: ["Agile methodologies", "Test-Driven Development (TDD)"],
     description: "Agile development with TDD and version control best practices",
@@ -151,7 +151,7 @@ export const skills = [
   {
     id: "version-control",
     category: "Version Control",
-    icon: Gift,
+    icon: GitBranch,
     title: "Version Control",
     technologies: ["Git", "GitHub", "GitLab"],
     description: "Proficient in version control systems for collaborative development",
