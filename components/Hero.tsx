@@ -105,7 +105,7 @@ const Hero = () => {
                   <CardBody className="bg-gray-50 dark:bg-gray-900 relative group/card dark:hover:shadow-2xl dark:hover:shadow-purple/[0.3] dark:border-white-300 border-black-200/[0.3] w-auto sm:w-[25rem] h-auto rounded-xl p-2 border">
                     <CardItem translateZ="100" className="w-full">
                       <Image
-                        src="/photo.jpg"
+                        src="/Photo.jpg"
                         height="400"
                         width="400"
                         className="h-[28rem] w-full object-cover object-top rounded-xl group-hover/card:shadow-xl transition-shadow duration-300"
