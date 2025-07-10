@@ -4,13 +4,14 @@ import { cn } from "@/lib/utils";
 import { useMotionTemplate, useMotionValue, motion } from "motion/react";
 import * as LabelPrimitive from "@radix-ui/react-label";
 import dynamic from "next/dynamic";
+import emailjs from '@emailjs/browser';
 
-// Dynamically import the World component
 const World = dynamic(() => import("./ui/Globe").then((m) => m.World), {
   ssr: false,
 });
 
-// Label Component
+emailjs.init(process.env.NEXT_PUBLIC_PUBLIC_KEY!);
+
 const Label = React.forwardRef<
   React.ElementRef<typeof LabelPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root>
@@ -26,7 +27,6 @@ const Label = React.forwardRef<
 ));
 Label.displayName = LabelPrimitive.Root.displayName;
 
-// Input Component with Motion Effects
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> { }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
@@ -74,7 +74,6 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
 );
 Input.displayName = "Input";
 
-// Textarea Component with Motion Effects
 const Textarea = React.forwardRef<
   HTMLTextAreaElement,
   React.TextareaHTMLAttributes<HTMLTextAreaElement>
@@ -120,7 +119,6 @@ const Textarea = React.forwardRef<
 });
 Textarea.displayName = "Textarea";
 
-// Bottom Gradient Effect
 const BottomGradient = () => {
   return (
     <>
@@ -130,7 +128,6 @@ const BottomGradient = () => {
   );
 };
 
-// Label Input Container
 const LabelInputContainer = ({
   children,
   className,
@@ -163,21 +160,43 @@ export default function ContactForm() {
     }));
   };
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
+    // Validate form data
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      setSubmitStatus('error');
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
-      // Simulate API call - replace with your actual form submission logic
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        to_name: "Rani Kumari",
+        reply_to: formData.email,
+      };
 
-      // Here you would typically send the form data to your backend
-      console.log('Form submitted:', formData);
+      // Send email using EmailJS with environment variables
+      const result = await emailjs.send(
+        process.env.NEXT_PUBLIC_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_TEMPLATE_ID!,
+        templateParams,
+        process.env.NEXT_PUBLIC_PUBLIC_KEY!
+      );
 
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', message: '' });
+      if (result.status === 200) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setSubmitStatus('error');
+      }
     } catch (error) {
+      console.error('EmailJS error:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -392,17 +411,18 @@ export default function ContactForm() {
                 <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
                   Contact <span className="text-purple ml-2"> Me </span>
                 </h2>
-                <p className="text-white-200">
-                  Ready to collaborate on your next project? Let's make something amazing together. Drop me a message
+                <p className="text-white-200 md:text-base">
+                  Ready to collaborate on your next project? Drop me a message or reach out via email at{" "}
                   <a
                     href="mailto:ranipurohit30@gmail.com"
                     className="text-purple hover:text-[#CBACF9] transition-colors"
                   >
+                    ranipurohit30@gmail.com
                   </a>
                 </p>
               </div>
 
-              <div className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Name Field */}
                 <LabelInputContainer className="pl-4">
                   <Label htmlFor="name"> Name </Label>
@@ -425,7 +445,7 @@ export default function ContactForm() {
                     id="email"
                     name="email"
                     type="email"
-                    placeholder="your.email@example.com"
+                    placeholder="your@gmail.com"
                     value={formData.email}
                     onChange={handleInputChange}
                     required
@@ -450,8 +470,7 @@ export default function ContactForm() {
 
                 {/* Submit Button */}
                 <button
-                  type="button"
-                  onClick={() => handleSubmit({ preventDefault: () => { } } as any)}
+                  type="submit"
                   disabled={isSubmitting}
                   className="group/btn relative block h-10 w-48 mx-auto rounded-md bg-gradient-to-br from-purple to-[#CBACF9] font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 hover:shadow-lg"
                 >
@@ -468,30 +487,30 @@ export default function ContactForm() {
                   )}
                   <BottomGradient />
                 </button>
+              </form>
 
-                {/* Status Messages */}
-                {submitStatus === 'success' && (
-                  <div className="text-center p-4 bg-green-900/20 rounded-lg border border-green-500/20">
-                    <p className="text-green-400 font-medium">
-                      Thank you! Your message has been sent successfully.
-                    </p>
-                  </div>
-                )}
-
-                {submitStatus === 'error' && (
-                  <div className="text-center p-4 bg-red-900/20 rounded-lg border border-red-500/20">
-                    <p className="text-red-400 font-medium">
-                      Something went wrong. Please try again or email me directly.
-                    </p>
-                  </div>
-                )}
-
-                {/* Additional Contact Info */}
-                <div className="mt-8 text-center">
-                  <p className="text-white-200 text-sm">
-                    I typically respond within 24 hours
+              {/* Status Messages */}
+              {submitStatus === 'success' && (
+                <div className="text-center p-4 bg-green-900/20 rounded-lg border border-green-500/20 mt-4">
+                  <p className="text-green-400 font-medium">
+                    Thank you! Your message has been sent successfully.
                   </p>
                 </div>
+              )}
+
+              {submitStatus === 'error' && (
+                <div className="text-center p-4 bg-red-900/20 rounded-lg border border-red-500/20 mt-4">
+                  <p className="text-red-400 font-medium">
+                    Something went wrong. Please try again or email me directly.
+                  </p>
+                </div>
+              )}
+
+              {/* Additional Contact Info */}
+              <div className="mt-8 text-center">
+                <p className="text-white-200 text-sm">
+                  I typically respond within 24 hours
+                </p>
               </div>
             </div>
           </div>
