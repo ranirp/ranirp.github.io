@@ -23,7 +23,7 @@ export const projects = [
       "/vite.svg",
       "/rapid.png",
     ],
-    link: "https://ranirp1.github.io/ai-article-summarizer/",
+    link: "https://ranirp.github.io/ai-article-summarizer/",
   },
   {
     id: 2,
@@ -71,7 +71,7 @@ export const dockLinks = [
   {
     title: "GitHub",
     icon: "IconBrandGithub",
-    href: "https://github.com/ranirp1",
+    href: "https://github.com/ranirp",
   },
   {
     title: "Contact",
