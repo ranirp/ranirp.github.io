@@ -374,7 +374,7 @@ export default function ContactForm() {
             Connect with me <span className="text-purple"> Worldwide </span>
           </h1>
           <h6 className="mx-4 text-base text-white-200 font-medium text-center mt-4">
-            I'd love to hear from you!
+            <p>I&apos;d love to hear from you!</p>
           </h6>
         </div>
 

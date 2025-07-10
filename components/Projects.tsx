@@ -2,6 +2,7 @@
 import { FaLocationArrow } from "react-icons/fa6";
 import { projects } from "@/data";
 import { Carousel } from "./ui/carousel";
+import Image from "next/image";
 
 const RecentProjects = () => {
   const carouselSlides = projects.map((item) => ({
@@ -19,7 +20,7 @@ const RecentProjects = () => {
           style={{ top: '-40px' }}
         >
 
-          <img
+          <Image
             src={item.img}
             alt="cover"
             className="z-10 object-contain rounded-xl transform rotate-6 hover:rotate-0 transition-transform duration-300 shadow-none"
@@ -54,7 +55,7 @@ const RecentProjects = () => {
                   transform: `translateX(-${5 * index + 2}px)`,
                 }}
               >
-                <img src={icon} alt="icon5" className="p-2" />
+                <Image src={icon} alt="icon5" className="p-2" />
               </div>
             ))}
           </div>

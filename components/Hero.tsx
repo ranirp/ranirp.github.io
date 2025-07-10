@@ -13,6 +13,7 @@ import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 import { dockLinks } from "@/data/index";
 import { navItems } from "@/data/index";
+import Image from "next/image";
 
 const Hero = () => {
   const iconMap = {
@@ -79,13 +80,13 @@ const Hero = () => {
               />
 
               <p className="text-center lg:text-justify md:tracking-wider mb-4 text-sm md:text-base lg:text-base text-neutral-600 dark:text-white-100 lg:max-w-2xl">
-                Fresh MSc graduate in Advanced Computer Science with expertise in full-stack development and cloud infrastructure. I'm passionate about creating robust, user-centric applications that solve real-world problems and deliver tangible value.
+                Fresh MSc graduate in Advanced Computer Science with expertise in full-stack development and cloud infrastructure. I&apos;m passionate about creating robust, user-centric applications that solve real-world problems and deliver tangible value.
               </p>
               <p className="text-center lg:text-justify md:tracking-wider mb-4 text-sm md:text-base lg:text-base text-neutral-600 dark:text-white-100 lg:max-w-2xl">
                 Currently diving deeper into AI automation and intelligent agents to stay at the forefront of modern computing.
               </p>
               <p className="text-center lg:text-justify md:tracking-wider mb-4 text-sm md:text-base lg:text-base text-neutral-600 dark:text-white-100 lg:max-w-2xl">
-                Fueled by coffee ☕, powered by code 💻 and always debugging life's mysteries.
+                Fueled by coffee ☕, powered by code 💻 and always debugging life&apos;s mysteries.
               </p>
 
               <div className="-mt-6">
@@ -103,7 +104,7 @@ const Hero = () => {
                 <CardContainer className="inter-var">
                   <CardBody className="bg-gray-50 dark:bg-gray-900 relative group/card dark:hover:shadow-2xl dark:hover:shadow-purple/[0.3] dark:border-white-300 border-black-200/[0.3] w-auto sm:w-[25rem] h-auto rounded-xl p-2 border">
                     <CardItem translateZ="100" className="w-full">
-                      <img
+                      <Image
                         src="/photo.jpg"
                         height="400"
                         width="400"

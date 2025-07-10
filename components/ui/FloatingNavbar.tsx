@@ -8,6 +8,7 @@ import {
 } from "framer-motion";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 export const FloatingNav = ({
   navItems,
@@ -68,7 +69,7 @@ export const FloatingNav = ({
           {/* Logo Section */}
           <div className="flex items-center space-x-3">
             <div className="w-8 h-8 rounded-lg overflow-hidden shadow-lg">
-              <img
+              <Image
                 src="/logo.png"
                 alt="Ranik Logo"
                 className="w-full h-full object-cover"
