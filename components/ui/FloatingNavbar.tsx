@@ -73,7 +73,7 @@ export const FloatingNav = ({
                 src="/logo.png"
                 alt="Ranik Logo"
                 className="w-full h-full object-cover"
-              />
+                width={100} height={100} />
             </div>
             <span className="text-lg font-bold text-white">
               Ranik

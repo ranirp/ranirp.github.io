@@ -24,6 +24,7 @@ const RecentProjects = () => {
             src={item.img}
             alt="cover"
             className="z-10 object-contain rounded-xl transform rotate-6 hover:rotate-0 transition-transform duration-300 shadow-none"
+            width={100} height={100}
             style={{
               width: '90%',
               height: '95%',
@@ -55,7 +56,7 @@ const RecentProjects = () => {
                   transform: `translateX(-${5 * index + 2}px)`,
                 }}
               >
-                <Image src={icon} alt="icon5" className="p-2" />
+                <Image src={icon} alt="icon5" className="p-2" width={100} height={100} />
               </div>
             ))}
           </div>

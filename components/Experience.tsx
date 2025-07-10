@@ -33,6 +33,7 @@ const Experience = () => {
                   src="/epapalogo.jpeg"
                   alt={card.company}
                   className="w-14 h-14 md:w-16 md:h-16 lg:w-18 lg:h-18 rounded-lg mb-3 mx-auto"
+                  width={100} height={100}
                 />
                 <div className="w-full">
                   <h2 className="text-base md:text-lg lg:text-xl font-bold text-white mb-1">
