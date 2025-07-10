@@ -1,6 +1,7 @@
 import { FaDownload } from "react-icons/fa6";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import { FloatingDock } from "@/components/ui/FloatingDock";
+import { FloatingNav } from "./ui/FloatingNavbar";
 import {
   IconBrandGithub,
   IconBrandLinkedin,
@@ -11,6 +12,7 @@ import MagicButton from "./ui/MagicButton";
 import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 import { dockLinks } from "@/data/index";
+import { navItems } from "@/data/index";
 
 const Hero = () => {
   const iconMap = {
@@ -31,6 +33,8 @@ const Hero = () => {
 
   return (
     <div className="pb-20 pt-36 relative">
+      <FloatingNav navItems={navItems} />
+
       {/* Spotlights - Fixed positioning and z-index */}
       <Spotlight
         className="-top-40 -left-10 md:-left-32 md:-top-20 h-screen"
@@ -51,22 +55,40 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 px-4 my-20">
+      <div className="relative z-10 px-4 my-16">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 lg:gap-20 items-center">
 
             {/* Left side - Text Content */}
-            <div className="flex flex-col items-center lg:items-start justify-center order-1 lg:order-1">
-              <p className="text-center lg:text-left md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl text-neutral-600 dark:text-white-100">
-                Hi! I&apos;m Rani Kumari 👋
-              </p>
+            <div className="flex flex-col items-center lg:items-start justify-start order-1 lg:order-1 lg:col-span-2 lg:pr-8 min-h-[500px]">
+              <div className="mb-2">
+                <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-white/10 dark:bg-gray-700/50 text-white border border-white/20 dark:border-gray-700 backdrop-blur-sm">
+                  <span className="w-3 h-3 bg-emerald-600 rounded-full mr-3 shadow-[0_0_10px_rgba(16,185,129,0.8)] animate-pulse"></span>
+                  Available for work
+                </span>
+              </div>
 
               <TextGenerateEffect
-                words="From concept to cloud: scalable full-stack systems with architectural integrity"
+                words="Hi, I&apos;m Rani 👋"
                 className="text-center lg:text-left text-[32px] md:text-4xl lg:text-5xl text-black dark:text-white"
               />
 
-              <div className="mt-8">
+              <TextGenerateEffect
+                words="From concept to cloud: scalable full-stack systems with architectural integrity"
+                className="text-center lg:text-left text-[32px] md:text-3xl lg:text-3xl text-black dark:text-white"
+              />
+
+              <p className="text-center lg:text-justify md:tracking-wider mb-4 text-sm md:text-base lg:text-base text-neutral-600 dark:text-white-100 lg:max-w-2xl">
+                Fresh MSc graduate in Advanced Computer Science with expertise in full-stack development and cloud infrastructure. I'm passionate about creating robust, user-centric applications that solve real-world problems and deliver tangible value.
+              </p>
+              <p className="text-center lg:text-justify md:tracking-wider mb-4 text-sm md:text-base lg:text-base text-neutral-600 dark:text-white-100 lg:max-w-2xl">
+                Currently diving deeper into AI automation and intelligent agents to stay at the forefront of modern computing.
+              </p>
+              <p className="text-center lg:text-justify md:tracking-wider mb-4 text-sm md:text-base lg:text-base text-neutral-600 dark:text-white-100 lg:max-w-2xl">
+                Fueled by coffee ☕, powered by code 💻 and always debugging life's mysteries.
+              </p>
+
+              <div className="-mt-6">
                 <MagicButton
                   title="Download Resume"
                   icon={<FaDownload />}
@@ -76,7 +98,7 @@ const Hero = () => {
             </div>
 
             {/* Right side - 3D Image with Floating Dock */}
-            <div className="flex justify-center lg:justify-end order-2 lg:order-2">
+            <div className="flex justify-center lg:justify-start order-2 lg:order-2 lg:col-span-1 lg:ml-8">
               <div className="relative">
                 <CardContainer className="inter-var">
                   <CardBody className="bg-gray-50 dark:bg-gray-900 relative group/card dark:hover:shadow-2xl dark:hover:shadow-purple/[0.3] dark:border-white-300 border-black-200/[0.3] w-auto sm:w-[25rem] h-auto rounded-xl p-2 border">
