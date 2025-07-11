@@ -85,11 +85,11 @@ const Hero = () => {
               <p className="text-center lg:text-justify md:tracking-wider mb-4 text-sm md:text-base lg:text-base text-neutral-600 dark:text-white-100 lg:max-w-2xl">
                 Currently diving deeper into AI automation and intelligent agents to stay at the forefront of modern computing.
               </p>
-              <p className="text-center lg:text-justify md:tracking-wider mb-4 text-sm md:text-base lg:text-base text-neutral-600 dark:text-white-100 lg:max-w-2xl">
+              <p className="text-center lg:text-justify md:tracking-wider mb-2 text-sm md:text-base lg:text-base text-neutral-600 dark:text-white-100 lg:max-w-2xl">
                 Fueled by coffee ☕, powered by code 💻 and always debugging life&apos;s mysteries.
               </p>
 
-              <div className="-mt-6">
+              <div className="mt-0 sm:-mt-2">
                 <MagicButton
                   title="Download Resume"
                   icon={<FaDownload />}
