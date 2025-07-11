@@ -70,7 +70,7 @@ const Hero = () => {
               </div>
 
               <TextGenerateEffect
-                words="Hi, I&apos;m Rani 👋"
+                words="Hi, I&apos;m Rani"
                 className="text-center lg:text-left text-[32px] md:text-4xl lg:text-5xl text-black dark:text-white"
               />
 
@@ -89,9 +89,21 @@ const Hero = () => {
                 Fueled by coffee ☕, powered by code 💻 and always debugging life&apos;s mysteries.
               </p>
 
-              <div className="mt-0 sm:-mt-2">
+              <div className="mt-0 sm:-mt-2" onClick={() => {
+                try {
+                  const link = document.createElement('a');
+                  link.href = '/assets/CV.pdf';
+                  link.download = 'RaniKumari.pdf';
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                } catch (error) {
+                  console.error('Download failed:', error);
+                  window.open('/assets/CV.pdf', '_blank');
+                }
+              }}>
                 <MagicButton
-                  title="Download Resume"
+                  title="Download CV"
                   icon={<FaDownload />}
                   position="right"
                 />
