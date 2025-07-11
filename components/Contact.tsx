@@ -398,8 +398,10 @@ export default function ContactForm() {
                 className="text-center mb-8"
               >
               </motion.div>
-              <div className="absolute w-full h-full z-10 transform -translate-x-8 -translate-y-4">
-                <World data={sampleArcs} globeConfig={globeConfig} />
+              <div className="absolute inset-0 w-full h-full overflow-visible flex items-center justify-center">
+                <div className="w-full h-full scale-90 sm:scale-95 lg:scale-100">
+                  <World data={sampleArcs} globeConfig={globeConfig} />
+                </div>
               </div>
             </div>
           </div>
