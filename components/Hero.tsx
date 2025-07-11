@@ -89,7 +89,7 @@ const Hero = () => {
                 Fueled by coffee ☕, powered by code 💻 and always debugging life&apos;s mysteries.
               </p>
 
-              <div className="mt-0 sm:-mt-2" onClick={() => {
+              <div className="-mt-1" onClick={() => {
                 try {
                   const link = document.createElement('a');
                   link.href = '/assets/CV.pdf';
