@@ -23,6 +23,7 @@ export const FloatingNav = ({
 }) => {
   const { scrollYProgress } = useScroll();
   const [visible, setVisible] = useState(true);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
     if (typeof current === "number") {
@@ -35,10 +36,15 @@ export const FloatingNav = ({
           setVisible(true);
         } else {
           setVisible(false);
+          setMobileMenuOpen(false);
         }
       }
     }
   });
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
 
   return (
     <AnimatePresence mode="wait">
@@ -73,15 +79,15 @@ export const FloatingNav = ({
                 src="/logo.png"
                 alt="Ranik Logo"
                 className="w-full h-full object-cover"
-                width={100} height={100} />
+                width={100}
+                height={100}
+              />
             </div>
-            <span className="text-lg font-bold text-white">
-              Ranik
-            </span>
+            <span className="text-lg font-bold text-white">Ranik</span>
           </div>
 
-          {/* Navigation Items */}
-          <div className="flex items-center space-x-12">
+          {/* Desktop Navigation Items */}
+          <div className="hidden md:flex items-center space-x-12">
             {navItems.map((navItem: any, idx: number) => (
               <Link
                 key={`link=${idx}`}
@@ -91,11 +97,81 @@ export const FloatingNav = ({
                 )}
               >
                 <span className="hidden sm:block">{navItem.icon}</span>
-                <span className="text-sm font-medium !cursor-pointer">{navItem.name}</span>
+                <span className="text-sm font-medium !cursor-pointer">
+                  {navItem.name}
+                </span>
               </Link>
             ))}
           </div>
+
+          {/* Mobile Hamburger Menu */}
+          <div className="md:hidden">
+            <button
+              onClick={toggleMobileMenu}
+              className="text-white hover:text-neutral-300 transition-colors duration-200 focus:outline-none"
+              aria-label="Toggle mobile menu"
+            >
+              <motion.div
+                animate={mobileMenuOpen ? "open" : "closed"}
+                className="w-6 h-6 flex flex-col justify-center items-center"
+              >
+                <motion.span
+                  variants={{
+                    closed: { rotate: 0, y: 0 },
+                    open: { rotate: 45, y: 6 },
+                  }}
+                  transition={{ duration: 0.3 }}
+                  className="w-6 h-0.5 bg-white block mb-1.5 origin-center"
+                />
+                <motion.span
+                  variants={{
+                    closed: { opacity: 1 },
+                    open: { opacity: 0 },
+                  }}
+                  transition={{ duration: 0.3 }}
+                  className="w-6 h-0.5 bg-white block mb-1.5"
+                />
+                <motion.span
+                  variants={{
+                    closed: { rotate: 0, y: 0 },
+                    open: { rotate: -45, y: -6 },
+                  }}
+                  transition={{ duration: 0.3 }}
+                  className="w-6 h-0.5 bg-white block origin-center"
+                />
+              </motion.div>
+            </button>
+          </div>
         </div>
+
+        {/* Mobile Dropdown Menu */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="md:hidden mt-4 border-t border-white/20 pt-4 overflow-hidden"
+            >
+              <div className="flex flex-col space-y-4">
+                {navItems.map((navItem: any, idx: number) => (
+                  <Link
+                    key={`mobile-link=${idx}`}
+                    href={navItem.link}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center space-x-3 text-neutral-300 hover:text-white transition-colors duration-200 py-2"
+                  >
+                    <span className="text-lg">{navItem.icon}</span>
+                    <span className="text-sm font-medium">
+                      {navItem.name}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.div>
     </AnimatePresence>
   );
