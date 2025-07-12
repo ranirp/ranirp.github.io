@@ -24,16 +24,24 @@ export const projects = [
       "/rapid.png",
     ],
     link: "https://ranirp.github.io/ai-article-summarizer/",
+    github: "https://github.com/ranirp/ai-article-summarizer",
   },
   {
     id: 2,
     title: "PricePulse: E-Commerce Tracking Application",
     des: "Implemented continuous web scraping with proxy rotation to monitor product pages, maintained historical price data, scheduled automated cron jobs for 24/7 checks, and integrated email alerts for price drops and restocks.",
-    img: "/grid.svg",
+    img: "/Pricepulse.png",
     iconLists: [
+      '/nextjs.svg',
+      '/typescript.svg',
       '/tailwindcss.svg',
+      '/headlessui.svg',
+      '/cheerio.svg',
+      '/mongodb.svg',
+      '/mongoose.svg',
     ],
-    link: "#",
+    link: "https://ranirp.github.io/pricepulse-ecommerce-tracker/",
+    github: "https://github.com/ranirp/pricepulse-ecommerce-tracker",
   },
 ];
 

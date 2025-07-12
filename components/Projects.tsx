@@ -1,86 +1,190 @@
 "use client";
+import React from 'react';
 import { FaLocationArrow } from "react-icons/fa6";
 import { projects } from "@/data";
-import { Carousel } from "./ui/carousel";
 import Image from "next/image";
+import { FaGithub } from 'react-icons/fa6';
 
-const RecentProjects = () => {
-  const carouselSlides = projects.map((item) => ({
-    title: item.title,
-    button: "Check Live Site",
-    backgroundColor: "#13162D",
-    content: (
-      <div className="w-full">
-        <h1 className="font-bold lg:text-3xl md:text-xl text-base line-clamp-1 mb-16 text-center">
-          {item.title}
-        </h1>
+const cn = (...classes: (string | undefined)[]) => {
+  return classes.filter(Boolean).join(' ');
+};
 
-        <div
-          className="relative flex items-center justify-center w-full max-w-xs sm:max-w-md md:max-w-lg h-40 sm:h-56 md:h-72 lg:h-[30vh] mb-1 px-2 sm:px-8 mx-auto"
-          style={{ top: '-40px' }}
-        >
+const BentoGrid = ({
+  className,
+  children,
+}: {
+  className?: string;
+  children?: React.ReactNode;
+}) => {
+  return (
+    <div
+      className={cn(
+        "mx-auto grid max-w-7xl grid-cols-1 gap-12 md:grid-cols-2",
+        className,
+      )}
+    >
+      {children}
+    </div>
+  );
+};
 
-          <Image
-            src={item.img}
-            alt="cover"
-            className="z-10 object-contain rounded-xl transform rotate-6 hover:rotate-0 transition-transform duration-300 shadow-none"
-            width={100} height={100}
-            style={{
-              width: '90%',
-              height: '95%',
-              objectFit: 'cover',
-              boxShadow: 'none',
-              position: 'relative',
-            }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent z-20 lg:rounded-3xl pointer-events-none" />
-        </div>
-
-        <p
-          className="lg:text-lg lg:font-normal font-light text-sm"
-          style={{
-            color: "#BEC1DD",
-            margin: "0.5vh 0",
-          }}
-        >
-          {item.des}
-        </p>
-
-        <div className="flex items-center justify-between mt-7 mb-3">
+const BentoGridItem = ({
+  className,
+  title,
+  description,
+  header,
+  icon,
+  githubLink,
+}: {
+  className?: string;
+  title?: string | React.ReactNode;
+  description?: string | React.ReactNode;
+  header?: React.ReactNode;
+  icon?: React.ReactNode;
+  githubLink?: string;
+}) => {
+  console.log('BentoGridItem rendered with githubLink:', githubLink);
+  return (
+    <div
+      className={cn(
+        "group/bento shadow-input row-span-1 flex flex-col space-y-4 rounded-xl border border-neutral-200 bg-white py-6 px-6 transition duration-200 hover:shadow-xl dark:border-white/[0.2] dark:bg-slate-950/50 dark:shadow-none h-[36rem]",
+        className,
+      )}
+    >
+      {/* Title */}
+      <div className="flex items-center justify-center mb-3">
+        <div className="flex flex-col items-center">
           <div className="flex items-center">
-            {item.iconLists.map((icon, index) => (
-              <div
-                key={index}
-                className="border border-white/[.2] rounded-full bg-black lg:w-10 lg:h-10 w-8 h-8 flex justify-center items-center"
-                style={{
-                  transform: `translateX(-${5 * index + 2}px)`,
-                }}
-              >
-                <Image src={icon} alt="icon5" className="p-2" width={100} height={100} />
-              </div>
-            ))}
-          </div>
-
-          <div className="flex justify-center items-center">
-            <p className="flex lg:text-xl md:text-xs text-sm text-purple">
-              Live Site
-            </p>
-            <FaLocationArrow className="ms-3" color="#CBACF9" />
+            {icon}
+            <div className="font-sans font-bold text-xl text-neutral-600 dark:text-neutral-200 text-center">
+              {title}
+            </div>
           </div>
         </div>
       </div>
-    )
+
+      {/* Image display */}
+      {header}
+
+      {/* Description */}
+      <div className="flex-1 flex flex-col justify-between">
+        {description}
+      </div>
+    </div>
+  );
+};
+
+const RecentProjects = () => {
+  const ProjectImage = ({ img, title }: { img: string; title: string }) => (
+    <div className="relative w-full rounded-lg overflow-hidden mb-4" style={{ aspectRatio: '2950/1774' }}>
+      <Image
+        src={img}
+        alt={`${title} cover`}
+        fill
+        className="object-cover transition-transform duration-300 hover:scale-105"
+        sizes="(max-width: 640px) 90vw, (max-width: 768px) 80vw, 70vw"
+        quality={100}
+        priority={true}
+        placeholder="blur"
+        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+    </div>
+  );
+
+  const ProjectContent = ({ item }: { item: typeof projects[0] }) => (
+    <div className="flex flex-col h-full">
+      {/* Description */}
+      <div className="flex-1 mb-6">
+        <p className="text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed">
+          {item.des}
+        </p>
+      </div>
+
+      {/* Icons , Live Site & GitHub */}
+      <div className="flex items-center justify-between">
+        {/* Tech stack icons */}
+        <div className="flex items-center space-x-3 flex-wrap">
+          {item.iconLists.map((icon, index) => (
+            <div
+              key={index}
+              className="border border-neutral-200 dark:border-white/[0.2] rounded-full bg-neutral-50 dark:bg-gray-50/50 backdrop-blur-sm w-10 h-10 flex justify-center items-center flex-shrink-0 transition-transform hover:scale-110"
+            >
+              <Image
+                src={icon}
+                alt={`Tech ${index + 1}`}
+                width={20}
+                height={20}
+                className="object-contain"
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Live Site & GitHub buttons */}
+        <div className="flex items-center space-x-4 ml-4">
+          {/* Live Site button */}
+          {item.link && (
+            <a
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center cursor-pointer group"
+            >
+              <p className="text-sm text-purple font-medium group-hover:text-purple/80 transition-colors">
+                Live Site
+              </p>
+              <FaLocationArrow className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" color="#CBACF9" />
+            </a>
+          )}
+
+          {/* GitHub button */}
+          {item.github && (
+            <a
+              href={item.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center w-8 h-8 rounded-full bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors group/github"
+            >
+              <FaGithub className="w-4 h-4 text-neutral-600 dark:text-neutral-300 group-hover/github:text-neutral-800 dark:group-hover/github:text-neutral-100 transition-colors" />
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+
+  const bentoItems = projects.slice(0, 2).map((item) => ({
+    title: item.title,
+    description: <ProjectContent item={item} />,
+    header: <ProjectImage img={item.img} title={item.title} />,
+    className: "cursor-pointer group",
+    icon: null,
+    githubLink: item.github,
   }));
 
   return (
     <>
       <div id="projects" className="py-14 relative z-10">
         <h1 className="heading text-center">
-          Recent <span className="text-purple ml-2"> Projects </span>
+          Recent <span className="text-purple ml-2">Projects</span>
         </h1>
       </div>
-      <div className="flex items-center justify-center p-2 mt-0 mb-20 relative z-10">
-        <Carousel slides={carouselSlides} />
+
+      <div className="flex items-center justify-center p-6 mt-0 mb-20 relative z-10">
+        <BentoGrid>
+          {bentoItems.map((item, i) => (
+            <BentoGridItem
+              key={i}
+              title={item.title}
+              description={item.description}
+              header={item.header}
+              className={item.className}
+              icon={item.icon}
+              githubLink={item.githubLink}
+            />
+          ))}
+        </BentoGrid>
       </div>
     </>
   );
