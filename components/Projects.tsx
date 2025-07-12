@@ -102,27 +102,27 @@ const RecentProjects = () => {
       </div>
 
       {/* Icons , Live Site & GitHub */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col space-y-4 sm:flex-row sm:items-center sm:justify-between sm:space-y-0">
         {/* Tech stack icons */}
-        <div className="flex items-center space-x-3 flex-wrap">
+        <div className="flex items-center justify-center sm:justify-start gap-2 flex-wrap max-w-full">
           {item.iconLists.map((icon, index) => (
             <div
               key={index}
-              className="border border-neutral-200 dark:border-white/[0.2] rounded-full bg-neutral-50 dark:bg-gray-50/50 backdrop-blur-sm w-10 h-10 flex justify-center items-center flex-shrink-0 transition-transform hover:scale-110"
+              className="border border-neutral-200 dark:border-white/[0.2] rounded-full bg-neutral-50 dark:bg-gray-50/50 backdrop-blur-sm w-8 h-8 sm:w-10 sm:h-10 flex justify-center items-center flex-shrink-0 transition-transform hover:scale-110"
             >
               <Image
                 src={icon}
                 alt={`Tech ${index + 1}`}
-                width={20}
-                height={20}
-                className="object-contain"
+                width={16}
+                height={16}
+                className="object-contain sm:w-5 sm:h-5"
               />
             </div>
           ))}
         </div>
 
         {/* Live Site & GitHub buttons */}
-        <div className="flex items-center space-x-4 ml-4">
+        <div className="flex items-center justify-center sm:justify-end space-x-4 flex-shrink-0">
           {/* Live Site button */}
           {item.link && (
             <a
