@@ -40,7 +40,7 @@ export const projects = [
       '/mongodb.svg',
       '/mongoose.svg',
     ],
-    link: "https://ranirp.github.io/pricepulse-ecommerce-tracker/",
+    link: "",
     github: "https://github.com/ranirp/pricepulse-ecommerce-tracker",
   },
 ];
