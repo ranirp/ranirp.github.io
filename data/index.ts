@@ -99,7 +99,7 @@ export const skills = [
     category: "Frontend",
     icon: Code,
     title: "Front-end Development",
-    technologies: ["JavaScript (ES6+)", "TypeScript", "React", "Next.js", "Tailwind CSS", "Redux Toolkit"],
+    technologies: ["Java", "JavaScript (ES6+)", "TypeScript", "React", "Next.js", "Tailwind CSS", "Redux Toolkit"],
     description: "Built responsive SPAs with component-driven design",
     span: "md:col-span-4"
   },

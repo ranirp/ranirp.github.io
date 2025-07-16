@@ -8,7 +8,7 @@ import {
     SiPostgresql, SiMongodb, SiMysql, SiSqlite, SiGit, SiGithub, SiGitlab,
     SiFirebase, SiDocker, SiKubernetes, SiGithubactions, SiJenkins,
 } from 'react-icons/si';
-import { FaCode, FaMobile, FaServer, FaMicrosoft, FaLock, FaRocket, FaLayerGroup, FaTools, FaInfinity, FaCheckCircle } from 'react-icons/fa';
+import { FaCode, FaMicrosoft, FaLock, FaTools, FaInfinity } from 'react-icons/fa';
 
 // Color mappings for different skill categories
 const categoryColors = {
@@ -33,6 +33,7 @@ const iconColors = {
 // Enhanced technology icon mapping with specific colors for each technology
 const techIcons = {
     // Frontend - with specific colors
+    "Java": { icon: FaCode, color: 'text-yellow-600' },
     'JavaScript (ES6+)': { icon: SiJavascript, color: 'text-yellow-500' },
     'TypeScript': { icon: SiTypescript, color: 'text-blue-600' },
     'React': { icon: SiReact, color: 'text-cyan-500' },
