@@ -93,7 +93,7 @@ const Hero = () => {
                 try {
                   const link = document.createElement('a');
                   link.href = '/assets/CV.pdf';
-                  link.download = 'RaniKumari.pdf';
+                  link.download = 'Rani_Kumari_CV.pdf';
                   document.body.appendChild(link);
                   link.click();
                   document.body.removeChild(link);
