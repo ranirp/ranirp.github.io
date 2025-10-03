@@ -2,59 +2,54 @@ import React from 'react';
 import { GlowingEffect } from "@/components/ui/GlowingEffect";
 import { skills } from '@/data';
 import {
-    SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiTailwindcss, SiRedux,
-    SiNodedotjs, SiExpress, SiPython, SiFlask, SiFastapi, SiPostman, SiSwagger,
-    SiAndroidstudio, SiSocketdotio, SiJira, SiTestinglibrary,
-    SiPostgresql, SiMongodb, SiMysql, SiSqlite, SiGit, SiGithub, SiGitlab,
-    SiFirebase, SiDocker, SiKubernetes, SiGithubactions, SiJenkins,
+    SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiTailwindcss,
+    SiNodedotjs, SiExpress, SiPython, SiFlask, SiFastapi, SiPostman, SiSwagger, SiJira, SiTestinglibrary, SiPostgresql, SiMongodb, SiMysql, SiSqlite, SiGit, SiGithub, SiGitlab, SiFirebase, SiDocker, SiKubernetes, SiGithubactions, SiJenkins, SiFigma
 } from 'react-icons/si';
-import { FaCode, FaMicrosoft, FaLock, FaTools, FaInfinity } from 'react-icons/fa';
+import { FaCode, FaMicrosoft, FaTools, FaInfinity, FaKey, FaMobileAlt } from 'react-icons/fa';
+import { BsCodeSlash } from 'react-icons/bs';
+import { GiPill } from 'react-icons/gi';
+import { BiCube } from 'react-icons/bi';
 
 // Color mappings for different skill categories
 const categoryColors = {
-    Frontend: "from-blue-500/20 to-cyan-500/20",
-    Backend: "from-green-500/20 to-emerald-500/20",
-    Database: "from-purple-500/20 to-violet-500/20",
-    Mobile: "from-pink-500/20 to-rose-500/20",
-    Cloud: "from-orange-500/20 to-amber-500/20",
-    "Development Practices": "from-gray-500/20 to-slate-500/20",
+    "Programming & Frameworks": "from-blue-500/20 to-cyan-500/20",
+    "APIs & Security": "from-green-500/20 to-emerald-500/20",
+    Databases: "from-purple-500/20 to-violet-500/20",
+    "Cloud & DevOps": "from-pink-500/20 to-rose-500/20",
+    "Architecture & Practices": "from-orange-500/20 to-amber-500/20",
+    "Workflow & Tools": "from-gray-500/20 to-slate-500/20",
 };
 
 // Enhanced icon colors with more vibrant colors that work on both light and dark backgrounds
 const iconColors = {
-    Frontend: "text-blue-600 dark:text-blue-400",
-    Backend: "text-green-600 dark:text-green-400",
-    Database: "text-purple-600 dark:text-purple-400",
-    Mobile: "text-pink-600 dark:text-pink-400",
-    Cloud: "text-orange-600 dark:text-orange-400",
-    "Development Practices": "text-slate-600 dark:text-slate-400",
+    "Programming & Frameworks": "text-blue-600 dark:text-blue-400",
+    "APIs & Security": "text-green-600 dark:text-green-400",
+    Databases: "text-purple-600 dark:text-purple-400",
+    "Cloud & DevOps": "text-pink-600 dark:text-pink-400",
+    "Architecture & Practices": "text-orange-600 dark:text-orange-400",
+    "Workflow & Tools": "text-slate-600 dark:text-slate-400",
 };
 
 // Enhanced technology icon mapping with specific colors for each technology
 const techIcons = {
-    // Frontend - with specific colors
+    // Programming & Frameworks - with specific colors
     "Java": { icon: FaCode, color: 'text-yellow-600' },
+    'Python': { icon: SiPython, color: 'text-blue-500' },
     'JavaScript (ES6+)': { icon: SiJavascript, color: 'text-yellow-500' },
     'TypeScript': { icon: SiTypescript, color: 'text-blue-600' },
-    'React': { icon: SiReact, color: 'text-cyan-500' },
-    'Next.js': { icon: SiNextdotjs, color: 'text-gray-900 dark:text-white' },
-    'Tailwind CSS': { icon: SiTailwindcss, color: 'text-cyan-500' },
-    'Redux Toolkit': { icon: SiRedux, color: 'text-purple-600' },
-
-
-    // Backend - with specific colors
     'Node.js': { icon: SiNodedotjs, color: 'text-green-600' },
     'Express': { icon: SiExpress, color: 'text-gray-700 dark:text-gray-300' },
-    'Python': { icon: SiPython, color: 'text-blue-500' },
+    'React': { icon: SiReact, color: 'text-cyan-500' },
+    'Next.js': { icon: SiNextdotjs, color: 'text-gray-900 dark:text-white' },
     'Flask': { icon: SiFlask, color: 'text-gray-700 dark:text-gray-300' },
-    'FastAPI': { icon: SiFastapi, color: 'text-teal-600' },
-    'Postman': { icon: SiPostman, color: 'text-orange-500' },
-    'Swagger': { icon: SiSwagger, color: 'text-blue-600' },
+    'Tailwind CSS': { icon: SiTailwindcss, color: 'text-cyan-500' },
 
-    // Mobile - with specific colors
-    'React Native': { icon: SiReact, color: 'text-cyan-500' },
-    'Android Studio': { icon: SiAndroidstudio, color: 'text-green-600' },
-    'Socket.IO': { icon: SiSocketdotio, color: 'text-gray-900 dark:text-white' },
+    // APIs & Security - with specific colors
+    'REST': { icon: FaCode, color: 'text-blue-600' },
+    'FastAPI': { icon: SiFastapi, color: 'text-teal-600' },
+    'OAuth/JWT authentication': { icon: FaKey, color: 'text-red-600' },
+    'Swagger': { icon: SiSwagger, color: 'text-green-600' },
+    'Postman': { icon: SiPostman, color: 'text-orange-500' },
 
     // Database - with specific colors
     'PostgreSQL': { icon: SiPostgresql, color: 'text-blue-600' },
@@ -62,27 +57,29 @@ const techIcons = {
     'MySQL': { icon: SiMysql, color: 'text-orange-600' },
     'SQLite': { icon: SiSqlite, color: 'text-blue-500' },
 
-    // Cloud - with specific colors
+    // Cloud & DevOps - with specific colors
     'Azure': { icon: FaMicrosoft, color: 'text-blue-600' },
     'Firebase': { icon: SiFirebase, color: 'text-orange-500' },
     'Docker': { icon: SiDocker, color: 'text-blue-600' },
     'Kubernetes': { icon: SiKubernetes, color: 'text-blue-600' },
+    'CI/CD': { icon: FaInfinity, color: 'text-teal-600' },
     'GitHub Actions': { icon: SiGithubactions, color: 'text-gray-900 dark:text-white' },
     'Jenkins': { icon: SiJenkins, color: 'text-red-600' },
 
-    // Version Control - with specific colors
+    // Architecture & Practices - with specific colors
+    'Progressive Web Apps(PWAs)': { icon: FaMobileAlt, color: 'text-blue-600' },
+    'Modular Components': { icon: BiCube, color: 'text-green-600' },
+    'SOLID principles': { icon: GiPill, color: 'text-purple-600' },
+    'Clean code(KISS, DRY, YAGNI)': { icon: BsCodeSlash, color: 'text-orange-600' },
+
+    // Workflow & Tools - with specific colors
+    'Agile/Scrum': { icon: FaTools, color: 'text-orange-600' },
     'Git': { icon: SiGit, color: 'text-orange-600' },
     'GitHub': { icon: SiGithub, color: 'text-gray-900 dark:text-white' },
     'GitLab': { icon: SiGitlab, color: 'text-orange-600' },
-
-    // Tools - with specific colors
-    'Jira': { icon: SiJira, color: 'text-blue-600' },
-
-    // Enhanced fallbacks with better icons and colors
-    'OAuth/JWT authentication': { icon: FaLock, color: 'text-red-600' },
-    'Agile': { icon: FaTools, color: 'text-orange-600' },
     'Test-Driven Development (TDD)': { icon: SiTestinglibrary, color: 'text-red-600' },
-    'CI/CD': { icon: FaInfinity, color: 'text-teal-600' },
+    'Jira': { icon: SiJira, color: 'text-blue-600' },
+    'Figma': { icon: SiFigma, color: 'text-purple-600' },
 };
 
 interface SkillGridItemProps {
