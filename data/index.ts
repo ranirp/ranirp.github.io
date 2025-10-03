@@ -48,10 +48,11 @@ export const projects = [
 export const workExperience = [
   {
     id: 1,
+    logo: "/epapa.jpeg",
     title: "Backend Developer Intern",
     company: "Epapa",
     timeline: "Sep 2024 - Dec 2024",
-    location: "Berlin, Germany",
+    location: "Berlin, Germany (Remote from United Kingdom)",
     "About the Role:": "Sole backend developer responsible for architecting and managing complete backend infrastructure from development to production. Designed RESTful APIs with AI integrations and successfully deployed mobile application to Google Play Store.",
     "Skills & Technologies": [
       "Node.js",
@@ -68,6 +69,30 @@ export const workExperience = [
       "Swagger"
     ],
   },
+  {
+    id: 2,
+    logo: "/freelance.svg",
+    title: "Full-stack & AI Developer",
+    company: "Freelance",
+    timeline: "Jan 2025 – Present",
+    location: "Remote",
+    "About the Role:": "Designed and delivered AI-powered web prototypes leveraging fine-tuned LLMs (GPT, Gemini) and integrated them into full-stack applications. Enhanced LLM accuracy on programming and voice datasets with ~15% benchmark improvements. Evaluated and optimized multiple LLMs for production reliability while collaborating in Agile teams through code reviews and iterative feature delivery.",
+    "Skills & Technologies": [
+      "Next.js",
+      "React",
+      "Node.js",
+      "TypeScript",
+      "Python",
+      "PostgreSQL",
+      "MongoDB",
+      "LangChain",
+      "OpenAI API",
+      "Google Gemini API",
+      "Vector Databases",
+      "LLM Fine-tuning",
+      "Agile Development"
+    ],
+  }
 ];
 
 export const dockLinks = [
