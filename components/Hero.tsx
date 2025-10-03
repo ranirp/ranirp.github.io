@@ -1,4 +1,3 @@
-import { FaDownload } from "react-icons/fa6";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import { FloatingDock } from "@/components/ui/FloatingDock";
 import { FloatingNav } from "./ui/FloatingNavbar";
@@ -88,26 +87,6 @@ const Hero = () => {
               <p className="text-center lg:text-justify md:tracking-wider mb-2 text-sm md:text-base lg:text-base text-neutral-600 dark:text-white-100 lg:max-w-2xl">
                 Fueled by coffee ☕, powered by code 💻 and always debugging life&apos;s mysteries.
               </p>
-
-              <div className="-mt-1" onClick={() => {
-                try {
-                  const link = document.createElement('a');
-                  link.href = '/assets/CV.pdf';
-                  link.download = 'Rani_Kumari_CV.pdf';
-                  document.body.appendChild(link);
-                  link.click();
-                  document.body.removeChild(link);
-                } catch (error) {
-                  console.error('Download failed:', error);
-                  window.open('/assets/CV.pdf', '_blank');
-                }
-              }}>
-                <MagicButton
-                  title="Download CV"
-                  icon={<FaDownload />}
-                  position="right"
-                />
-              </div>
             </div>
 
             {/* Right side - 3D Image with Floating Dock */}
