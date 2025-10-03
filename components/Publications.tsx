@@ -181,7 +181,7 @@ export const Publication = () => {
             {/* Grids */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
                 {/* Patents Section */}
-                <div className="space-y-8 flex flex-col">
+                <div className="space-y-6 flex flex-col">
                     <div className="flex justify-center">
                         <h2 className="text-3xl font-bold text-center text-white">
                             <span> 📄 </span>

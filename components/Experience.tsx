@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 const Experience = () => {
   return (
-    <div id="experience" className="py-20 w-full flex flex-col items-center justify-center min-h-screen">
+    <div id="experience" className="py-16 w-full flex flex-col items-center justify-center min-h-screen">
       <div className="w-full flex justify-center items-center mb-12">
         <h1 className="heading text-center">
           Professional <span className="text-purple ml-2"> Experience </span>

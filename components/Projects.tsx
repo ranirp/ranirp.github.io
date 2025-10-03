@@ -165,7 +165,7 @@ const RecentProjects = () => {
 
   return (
     <>
-      <div id="projects" className="py-14 relative z-10">
+      <div id="projects" className="py-12 relative z-10">
         <h1 className="heading text-center">
           Recent <span className="text-purple ml-2">Projects</span>
         </h1>

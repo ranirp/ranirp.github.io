@@ -62,7 +62,7 @@ const Hero = () => {
             {/* Left side - Text Content */}
             <div className="flex flex-col items-center lg:items-start justify-start order-1 lg:order-1 lg:col-span-2 lg:pr-8 min-h-[500px]">
               <div className="mb-2">
-                <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-white/10 dark:bg-gray-700/50 text-white border border-white/20 dark:border-gray-700 backdrop-blur-sm">
+                <span className="inline-flex items-center px-4 py-1 rounded-full text-sm font-medium bg-white/10 dark:bg-gray-700/50 text-white border border-white/20 dark:border-gray-700 backdrop-blur-sm">
                   <span className="w-3 h-3 bg-emerald-600 rounded-full mr-3 shadow-[0_0_10px_rgba(16,185,129,0.8)] animate-pulse"></span>
                   Available for work
                 </span>
@@ -78,7 +78,7 @@ const Hero = () => {
                 className="text-center lg:text-left text-[32px] md:text-3xl lg:text-3xl text-black dark:text-white"
               />
 
-              <p className="text-center lg:text-justify md:tracking-wider mb-4 text-sm md:text-base lg:text-base text-neutral-600 dark:text-white-100 lg:max-w-2xl">
+              <p className="text-center lg:text-justify md:tracking-wider mt-6 mb-4 text-sm md:text-base lg:text-base text-neutral-600 dark:text-white-100 lg:max-w-2xl">
                 Fresh MSc graduate in Advanced Computer Science with expertise in full-stack development and cloud infrastructure. I&apos;m passionate about creating robust, user-centric applications that solve real-world problems and deliver tangible value.
               </p>
               <p className="text-center lg:text-justify md:tracking-wider mb-4 text-sm md:text-base lg:text-base text-neutral-600 dark:text-white-100 lg:max-w-2xl">
