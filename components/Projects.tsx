@@ -1,190 +1,217 @@
 "use client";
-import React from 'react';
-import { FaLocationArrow } from "react-icons/fa6";
-import { projects } from "@/data";
-import Image from "next/image";
+import React, { useState } from 'react';
+import { FaLocationArrow, FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 import { FaGithub } from 'react-icons/fa6';
+import { projects } from "@/data";
+
+// Define the Project type
+type Project = {
+  id: number;
+  title: string;
+  des: string;
+  img: string;
+  iconLists: string[];
+  link?: string;
+  github?: string;
+};
 
 const cn = (...classes: (string | undefined)[]) => {
   return classes.filter(Boolean).join(' ');
 };
 
-const BentoGrid = ({
-  className,
-  children,
-}: {
-  className?: string;
-  children?: React.ReactNode;
-}) => {
-  return (
-    <div
-      className={cn(
-        "mx-auto grid max-w-7xl grid-cols-1 gap-12 md:grid-cols-2",
-        className,
-      )}
-    >
-      {children}
-    </div>
-  );
-};
+const ProjectCarousel = ({ projects }: { projects: Project[] }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const projectsPerView = 2;
+  const totalSlides = Math.ceil(projects.length / projectsPerView);
 
-const BentoGridItem = ({
-  className,
-  title,
-  description,
-  header,
-  icon,
-  githubLink,
-}: {
-  className?: string;
-  title?: string | React.ReactNode;
-  description?: string | React.ReactNode;
-  header?: React.ReactNode;
-  icon?: React.ReactNode;
-  githubLink?: string;
-}) => {
-  console.log('BentoGridItem rendered with githubLink:', githubLink);
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % totalSlides);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index);
+  };
+
+  const visibleProjects = projects.slice(
+    currentIndex * projectsPerView,
+    currentIndex * projectsPerView + projectsPerView
+  );
+
   return (
-    <div
-      className={cn(
-        "group/bento shadow-input row-span-1 flex flex-col space-y-4 rounded-xl border border-neutral-200 bg-white py-6 px-6 transition duration-200 hover:shadow-xl dark:border-white/[0.2] dark:bg-slate-950/50 dark:shadow-none h-[36rem]",
-        className,
-      )}
-    >
-      {/* Title */}
-      <div className="flex items-center justify-center mb-3">
-        <div className="flex flex-col items-center">
-          <div className="flex items-center">
-            {icon}
-            <div className="font-sans font-bold text-xl text-neutral-600 dark:text-neutral-200 text-center">
-              {title}
-            </div>
-          </div>
+    <div className="relative max-w-7xl mx-auto">
+      {/* Projects Grid - Carousel View */}
+      <div className="overflow-hidden">
+        <div
+          className="flex transition-all duration-500 ease-in-out"
+          style={{
+            transform: `translateX(-${currentIndex * 100}%)`,
+          }}
+        >
+          {Array.from({ length: totalSlides }).map((_, slideIndex) => {
+            const slideProjects = projects.slice(
+              slideIndex * projectsPerView,
+              (slideIndex + 1) * projectsPerView
+            );
+            return (
+              <div key={slideIndex} className="w-full flex-shrink-0">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                  {slideProjects.map((project, idx) => (
+                    <div
+                      key={project.id}
+                      className="rounded-xl border border-neutral-200 dark:border-white/[0.2] bg-white dark:bg-slate-950/50 p-6 shadow-lg transition-all duration-300 hover:shadow-xl animate-fadeIn"
+                      style={{
+                        animation: `fadeIn 0.5s ease-in-out ${idx * 0.1}s both`
+                      }}
+                    >
+                      {/* Title */}
+                      <div className="flex items-center justify-center mb-4">
+                        <h3 className="font-sans font-bold text-xl text-neutral-600 dark:text-neutral-200 text-center">
+                          {project.title}
+                        </h3>
+                      </div>
+
+                      {/* Image */}
+                      <div className="relative w-full rounded-lg overflow-hidden mb-6" style={{ aspectRatio: '2950/1774' }}>
+                        <img
+                          src={project.img}
+                          alt={project.title}
+                          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                      </div>
+
+                      {/* Description */}
+                      <div className="mb-6">
+                        <p className="text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed">
+                          {project.des}
+                        </p>
+                      </div>
+
+                      {/* Icons and Links */}
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-4">
+                        <div className="flex items-center justify-center sm:justify-start gap-2 flex-wrap">
+                          {project.iconLists.map((icon, index) => (
+                            <div
+                              key={index}
+                              className="border border-neutral-200 dark:border-white/[0.2] rounded-full bg-neutral-50 dark:bg-gray-200 w-8 h-8 sm:w-10 sm:h-10 flex justify-center items-center transition-transform hover:scale-110"
+                            >
+                              <img
+                                src={icon}
+                                alt={`Tech ${index + 1}`}
+                                className="w-6 h-6 sm:w-6 sm:h-6 object-contain"
+                              />
+                            </div>
+                          ))}
+                        </div>
+
+                        <div className="flex items-center justify-center sm:justify-end space-x-4">
+                          {project.link && (
+                            <a
+                              href={project.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center cursor-pointer group"
+                            >
+                              <p className="text-sm text-purple-500 font-medium group-hover:text-purple-400 transition-colors">
+                                Live Site
+                              </p>
+                              <FaLocationArrow className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform text-purple-400" />
+                            </a>
+                          )}
+                          {project.github && (
+                            <a
+                              href={project.github}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center justify-center w-8 h-8 rounded-full bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors"
+                            >
+                              <FaGithub className="w-4 h-4 text-neutral-600 dark:text-neutral-300" />
+                            </a>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
 
-      {/* Image display */}
-      {header}
+      {/* Navigation Controls */}
+      {totalSlides > 1 && (
+        <div className="flex justify-center items-center gap-8 mt-12">
+          <button
+            onClick={prevSlide}
+            className="p-3 rounded-full bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-all hover:scale-110 active:scale-95"
+            aria-label="Previous projects"
+          >
+            <FaChevronLeft className="w-5 h-5 text-neutral-600 dark:text-neutral-300" />
+          </button>
 
-      {/* Description */}
-      <div className="flex-1 flex flex-col justify-between">
-        {description}
-      </div>
+          {/* Dots Indicator */}
+          <div className="flex gap-3">
+            {Array.from({ length: totalSlides }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={cn(
+                  "h-2.5 rounded-full transition-all duration-300",
+                  index === currentIndex
+                    ? "w-10 bg-purple-500"
+                    : "w-2.5 bg-neutral-300 dark:bg-neutral-600 hover:bg-neutral-400 dark:hover:bg-neutral-500"
+                )}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+
+          <button
+            onClick={nextSlide}
+            className="p-3 rounded-full bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-all hover:scale-110 active:scale-95"
+            aria-label="Next projects"
+          >
+            <FaChevronRight className="w-5 h-5 text-neutral-600 dark:text-neutral-300" />
+          </button>
+        </div>
+      )}
+
+      <style jsx>{`
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fadeIn {
+          animation: fadeIn 0.5s ease-in-out both;
+        }
+      `}</style>
     </div>
   );
 };
 
 const RecentProjects = () => {
-  const ProjectImage = ({ img, title }: { img: string; title: string }) => (
-    <div className="relative w-full rounded-lg overflow-hidden mb-4" style={{ aspectRatio: '2950/1774' }}>
-      <Image
-        src={img}
-        alt={`${title} cover`}
-        fill
-        className="object-cover transition-transform duration-300 hover:scale-105"
-        sizes="(max-width: 640px) 90vw, (max-width: 768px) 80vw, 70vw"
-        quality={100}
-        priority={true}
-        placeholder="blur"
-        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-    </div>
-  );
-
-  const ProjectContent = ({ item }: { item: typeof projects[0] }) => (
-    <div className="flex flex-col h-full">
-      {/* Description */}
-      <div className="flex-1 mb-6">
-        <p className="text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed">
-          {item.des}
-        </p>
-      </div>
-
-      {/* Icons , Live Site & GitHub */}
-      <div className="flex flex-col space-y-4 sm:flex-row sm:items-center sm:justify-between sm:space-y-0">
-        {/* Tech stack icons */}
-        <div className="flex items-center justify-center sm:justify-start gap-2 flex-wrap max-w-full">
-          {item.iconLists.map((icon, index) => (
-            <div
-              key={index}
-              className="border border-neutral-200 dark:border-white/[0.2] rounded-full bg-neutral-50 dark:bg-gray-50/50 backdrop-blur-sm w-8 h-8 sm:w-10 sm:h-10 flex justify-center items-center flex-shrink-0 transition-transform hover:scale-110"
-            >
-              <Image
-                src={icon}
-                alt={`Tech ${index + 1}`}
-                width={16}
-                height={16}
-                className="object-contain sm:w-5 sm:h-5"
-              />
-            </div>
-          ))}
-        </div>
-
-        {/* Live Site & GitHub buttons */}
-        <div className="flex items-center justify-center sm:justify-end space-x-4 flex-shrink-0">
-          {/* Live Site button */}
-          {item.link && (
-            <a
-              href={item.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center cursor-pointer group"
-            >
-              <p className="text-sm text-purple font-medium group-hover:text-purple/80 transition-colors">
-                Live Site
-              </p>
-              <FaLocationArrow className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" color="#CBACF9" />
-            </a>
-          )}
-
-          {/* GitHub button */}
-          {item.github && (
-            <a
-              href={item.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center w-8 h-8 rounded-full bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors group/github"
-            >
-              <FaGithub className="w-4 h-4 text-neutral-600 dark:text-neutral-300 group-hover/github:text-neutral-800 dark:group-hover/github:text-neutral-100 transition-colors" />
-            </a>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-
-  const bentoItems = projects.slice(0, 2).map((item) => ({
-    title: item.title,
-    description: <ProjectContent item={item} />,
-    header: <ProjectImage img={item.img} title={item.title} />,
-    className: "cursor-pointer group",
-    icon: null,
-    githubLink: item.github,
-  }));
-
   return (
     <>
       <div id="projects" className="py-12 relative z-10">
-        <h1 className="heading text-center">
-          Recent <span className="text-purple ml-2">Projects</span>
+        <h1 className="heading text-center text-4xl font-bold">
+          Recent <span className="text-purple-500 ml-2">Projects</span>
         </h1>
       </div>
 
-      <div className="flex items-center justify-center p-6 mt-0 mb-20 relative z-10">
-        <BentoGrid>
-          {bentoItems.map((item, i) => (
-            <BentoGridItem
-              key={i}
-              title={item.title}
-              description={item.description}
-              header={item.header}
-              className={item.className}
-              icon={item.icon}
-              githubLink={item.githubLink}
-            />
-          ))}
-        </BentoGrid>
+      {/* Carousel Section */}
+      <div className="px-6 mb-20 relative z-10">
+        <ProjectCarousel projects={projects} />
       </div>
     </>
   );

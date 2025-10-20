@@ -28,6 +28,22 @@ export const projects = [
   },
   {
     id: 2,
+    title: "PlantPal - Plant Sharing Community",
+    des: "A Progressive Web App (PWA) for sharing plants and care tips with your local community. Built with Node.js, Express, MongoDB, Socket.IO, and IndexedDB for full offline functionality.",
+    img: "/plantpal.png",
+    iconLists: [
+      '/nodejs.png',
+      '/javascript.svg',
+      '/expressjs.png',
+      '/mongodb.svg',
+      '/tailwindcss.svg',
+      '/pwa.png'
+    ],
+    link: "",
+    github: "https://github.com/ranirp/plantpal",
+  },
+  {
+    id: 3,
     title: "PricePulse: E-Commerce Tracking Application",
     des: "Implemented continuous web scraping with proxy rotation to monitor product pages, maintained historical price data, scheduled automated cron jobs for 24/7 checks, and integrated email alerts for price drops and restocks.",
     img: "/Pricepulse.png",
@@ -43,6 +59,7 @@ export const projects = [
     link: "",
     github: "https://github.com/ranirp/pricepulse-ecommerce-tracker",
   },
+
 ];
 
 export const workExperience = [
