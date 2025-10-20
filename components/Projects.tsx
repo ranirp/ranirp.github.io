@@ -212,7 +212,7 @@ const RecentProjects = () => {
     <>
       <div id="projects" className="py-12 relative z-10">
         <h1 className="heading text-center text-4xl font-bold">
-          Recent <span className="text-purple-500 ml-2">Projects</span>
+          Recent <span className="text-purple ml-2">Projects</span>
         </h1>
       </div>
 
