@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaLocationArrow, FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 import { FaGithub } from 'react-icons/fa6';
 import { projects } from "@/data";
@@ -21,8 +21,20 @@ const cn = (...classes: (string | undefined)[]) => {
 
 const ProjectCarousel = ({ projects }: { projects: Project[] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const projectsPerView = 2;
+  const [projectsPerView, setProjectsPerView] = useState(2);
   const totalSlides = Math.ceil(projects.length / projectsPerView);
+
+  useEffect(() => {
+    const updateProjectsPerView = () => {
+      const newProjectsPerView = window.innerWidth < 768 ? 1 : 2;
+      setProjectsPerView(newProjectsPerView);
+      setCurrentIndex(0); // Reset to first slide when switching view
+    };
+
+    updateProjectsPerView();
+    window.addEventListener('resize', updateProjectsPerView);
+    return () => window.removeEventListener('resize', updateProjectsPerView);
+  }, []);
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % totalSlides);
@@ -35,11 +47,6 @@ const ProjectCarousel = ({ projects }: { projects: Project[] }) => {
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
   };
-
-  const visibleProjects = projects.slice(
-    currentIndex * projectsPerView,
-    currentIndex * projectsPerView + projectsPerView
-  );
 
   return (
     <div className="relative max-w-7xl mx-auto">
