@@ -89,11 +89,11 @@ export const workExperience = [
   {
     id: 2,
     logo: "/freelance.svg",
-    title: "Full-stack & AI Developer",
+    title: "Full-Stack and AI Application Developer (LLMs & Generative AI)",
     company: "Freelance",
     timeline: "Jan 2025 – Present",
     location: "Remote",
-    "About the Role:": "Designed and delivered AI-powered web prototypes leveraging fine-tuned LLMs (GPT, Gemini) and integrated them into full-stack applications. Enhanced LLM accuracy on programming and voice datasets with ~15% benchmark improvements. Evaluated and optimized multiple LLMs for production reliability while collaborating in Agile teams through code reviews and iterative feature delivery.",
+    "About the Role:": "Designed AI-powered web prototypes with fine-tuned LLMs (GPT, Gemini), integrated into full-stack apps and enhanced LLMs accuracy on programming and voice datasets, improving benchmark performance. Evaluated multiple LLMs and delivered optimization recommendations, improving reliability in production use. Contributed to Agile teams via code reviews and iterative feature delivery, ensuring timely delivery.",
     "Skills & Technologies": [
       "Next.js",
       "React",
