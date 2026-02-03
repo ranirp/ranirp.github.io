@@ -74,18 +74,18 @@ const Hero = () => {
               />
 
               <TextGenerateEffect
-                words="From concept to cloud: scalable full-stack systems with architectural integrity"
+                words="From concept to cloud: building scalable full-stack systems with clean architecture"
                 className="text-center lg:text-left text-[32px] md:text-3xl lg:text-3xl text-black dark:text-white"
               />
 
               <p className="text-center lg:text-justify md:tracking-wider mt-6 mb-4 text-sm md:text-base lg:text-base text-neutral-600 dark:text-white-100 lg:max-w-2xl">
-                Fresh MSc graduate in Advanced Computer Science with expertise in full-stack development and cloud infrastructure. I&apos;m passionate about creating robust, user-centric applications that solve real-world problems and deliver tangible value.
+                Junior Software Engineer with an MSc in Advanced Computer Science, specializing in backend and full-stack development using modern cloud technologies. I focus on building reliable, user-centric applications with strong architectural foundations and real-world impact.
               </p>
               <p className="text-center lg:text-justify md:tracking-wider mb-4 text-sm md:text-base lg:text-base text-neutral-600 dark:text-white-100 lg:max-w-2xl">
-                Currently diving deeper into AI automation and intelligent agents to stay at the forefront of modern computing.
+                Currently deepening my skills in AI automation and intelligent agents to stay aligned with modern software engineering trends.
               </p>
               <p className="text-center lg:text-justify md:tracking-wider mb-2 text-sm md:text-base lg:text-base text-neutral-600 dark:text-white-100 lg:max-w-2xl">
-                Fueled by coffee ☕, powered by code 💻 and always debugging life&apos;s mysteries.
+                Fueled by coffee ☕, powered by code 💻, and always curious about how systems and life work.
               </p>
             </div>
 
