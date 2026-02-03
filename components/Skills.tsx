@@ -50,7 +50,7 @@ const techIcons = {
     'FastAPI': { icon: SiFastapi, color: 'text-green-600' },
     'OAuth 2.0': { icon: FaKey, color: 'text-red-600' },
     'JWT': { icon: FaKey, color: 'text-yellow-600' },
-    'Swagger/OpenAPI': { icon: SiSwagger, color: 'text-green-600' },
+    'Swagger / OpenAPI': { icon: SiSwagger, color: 'text-green-600' },
     'Postman': { icon: SiPostman, color: 'text-orange-500' },
 
     // Database - with specific colors
