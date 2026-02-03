@@ -9,6 +9,7 @@ import { FaCode, FaMicrosoft, FaTools, FaInfinity, FaKey, FaMobileAlt } from 're
 import { BsCodeSlash } from 'react-icons/bs';
 import { GiPill } from 'react-icons/gi';
 import { BiCube } from 'react-icons/bi';
+import { FiLayers } from 'react-icons/fi';
 
 // Color mappings for different skill categories
 const categoryColors = {
@@ -45,10 +46,11 @@ const techIcons = {
     'Tailwind CSS': { icon: SiTailwindcss, color: 'text-cyan-500' },
 
     // APIs & Security - with specific colors
-    'REST': { icon: FaCode, color: 'text-blue-600' },
-    'FastAPI': { icon: SiFastapi, color: 'text-teal-600' },
-    'OAuth/JWT authentication': { icon: FaKey, color: 'text-red-600' },
-    'Swagger': { icon: SiSwagger, color: 'text-green-600' },
+    'REST APIs': { icon: FaCode, color: 'text-blue-600' },
+    'FastAPI': { icon: SiFastapi, color: 'text-green-600' },
+    'OAuth 2.0': { icon: FaKey, color: 'text-red-600' },
+    'JWT': { icon: FaKey, color: 'text-yellow-600' },
+    'Swagger/OpenAPI': { icon: SiSwagger, color: 'text-green-600' },
     'Postman': { icon: SiPostman, color: 'text-orange-500' },
 
     // Database - with specific colors
@@ -61,19 +63,19 @@ const techIcons = {
     'Azure': { icon: FaMicrosoft, color: 'text-blue-600' },
     'Firebase': { icon: SiFirebase, color: 'text-orange-500' },
     'Docker': { icon: SiDocker, color: 'text-blue-600' },
-    'Kubernetes': { icon: SiKubernetes, color: 'text-blue-600' },
+    'Kubernetes (basic)': { icon: SiKubernetes, color: 'text-blue-600' },
     'CI/CD': { icon: FaInfinity, color: 'text-teal-600' },
     'GitHub Actions': { icon: SiGithubactions, color: 'text-gray-900 dark:text-white' },
     'Jenkins': { icon: SiJenkins, color: 'text-red-600' },
 
     // Architecture & Practices - with specific colors
-    'Progressive Web Apps(PWAs)': { icon: FaMobileAlt, color: 'text-blue-600' },
-    'Modular Components': { icon: BiCube, color: 'text-green-600' },
-    'SOLID principles': { icon: GiPill, color: 'text-purple-600' },
-    'Clean code(KISS, DRY, YAGNI)': { icon: BsCodeSlash, color: 'text-orange-600' },
+    'Progressive Web Apps (PWAs)': { icon: FaMobileAlt, color: 'text-teal-500' },
+    'Modular Architecture': { icon: FiLayers, color: 'text-indigo-600' },
+    'SOLID Principles': { icon: FiLayers, color: 'text-emerald-500' },
+    'Clean Code (KISS, DRY, YAGNI)': { icon: FiLayers, color: 'text-amber-500' },
 
     // Workflow & Tools - with specific colors
-    'Agile/Scrum': { icon: FaTools, color: 'text-orange-600' },
+    'Agile / Scrum': { icon: FaTools, color: 'text-orange-600' },
     'Git': { icon: SiGit, color: 'text-orange-600' },
     'GitHub': { icon: SiGithub, color: 'text-gray-900 dark:text-white' },
     'GitLab': { icon: SiGitlab, color: 'text-orange-600' },

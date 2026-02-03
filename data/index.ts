@@ -137,59 +137,101 @@ export const dockLinks = [
 
 export const skills = [
   {
-    id: "Programming & Frameworks",
+    id: "programming-frameworks",
     category: "Programming & Frameworks",
     icon: Code,
     title: "Programming & Frameworks",
-    technologies: ["Java", "Python", "JavaScript (ES6+)", "TypeScript", "Node.js", "Express", "React", "Next.js", "Flask", "Tailwind CSS"],
-    description: "Built responsive SPAs with component-driven design",
+    technologies: [
+      "Java",
+      "Python",
+      "JavaScript (ES6+)",
+      "TypeScript",
+      "Node.js",
+      "Express",
+      "React",
+      "Next.js",
+      "Flask",
+      "Tailwind CSS"
+    ],
+    description: "Full-stack development with strong backend focus and modern frontend frameworks",
     span: "md:col-span-4"
   },
   {
-    id: "APIs & Security",
+    id: "apis-security",
     category: "APIs & Security",
     icon: Server,
     title: "APIs & Security",
-    technologies: ["REST", "FastAPI", "OAuth/JWT authentication", "Swagger", "Postman"],
-    description: "API design with comprehensive testing and documentation",
+    technologies: [
+      "REST APIs",
+      "FastAPI",
+      "OAuth 2.0",
+      "JWT",
+      "Swagger / OpenAPI",
+      "Postman"
+    ],
+    description: "Designing secure, well-documented APIs for production systems",
     span: "md:col-span-4"
   },
   {
-    id: "Databases",
+    id: "databases",
     category: "Databases",
     icon: Database,
     title: "Databases",
-    technologies: ["PostgreSQL", "MongoDB", "MySQL", "SQLite"],
-    description: "Schema design and performance tuning",
+    technologies: [
+      "PostgreSQL",
+      "MongoDB",
+      "MySQL",
+      "SQLite"
+    ],
+    description: "Schema design, query optimization, and data modeling",
     span: "md:col-span-4"
   },
   {
-    id: "Cloud & DevOps",
+    id: "cloud-devops",
     category: "Cloud & DevOps",
     icon: Cloud,
     title: "Cloud & DevOps",
-    technologies: ["Azure", "Firebase", "Docker", "Kubernetes", "CI/CD", "GitHub Actions", "Jenkins"],
-    description: "Cloud deployment with containerization and automated pipelines",
+    technologies: [
+      "Azure",
+      "Docker",
+      "Kubernetes (basic)",
+      "CI/CD",
+      "GitHub Actions",
+      "Firebase"
+    ],
+    description: "Cloud deployment, containerization, and automated delivery pipelines",
     span: "md:col-span-4"
   },
   {
-    id: "Architecture & Practices",
+    id: "architecture-practices",
     category: "Architecture & Practices",
     icon: Layers,
     title: "Architecture & Practices",
-    technologies: ["Progressive Web Apps(PWAs)", "Modular Components", "SOLID principles", "Clean code(KISS, DRY, YAGNI)"],
-    description: "Scalable architectures with best practices",
+    technologies: [
+      "Progressive Web Apps (PWAs)",
+      "Modular Architecture",
+      "SOLID Principles",
+      "Clean Code (KISS, DRY, YAGNI)"
+    ],
+    description: "Maintainable and scalable system design following best practices",
     span: "md:col-span-4"
   },
   {
-    id: "Workflow & Tools",
+    id: "workflow-tools",
     category: "Workflow & Tools",
     icon: Workflow,
     title: "Workflow & Tools",
-    technologies: ["Agile/Scrum", "Git", "GitHub", "GitLab", "Test-Driven Development (TDD)", "Jira", "Figma"],
-    description: "Agile methodologies with version control and testing",
+    technologies: [
+      "Agile / Scrum",
+      "Git",
+      "GitHub",
+      "GitLab",
+      "Test-Driven Development (TDD)",
+      "Jira"
+    ],
+    description: "Collaborative development using Agile workflows and version control",
     span: "md:col-span-4"
-  },
+  }
 ];
 
 export const Publications = [
