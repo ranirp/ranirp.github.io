@@ -70,17 +70,17 @@ export const workExperience = [
     company: "Epapa",
     timeline: "Sep 2024 - Dec 2024",
     location: "Berlin, Germany (Remote from United Kingdom)",
-    "About the Role:": "Sole backend developer responsible for architecting and managing complete backend infrastructure from development to production. Designed RESTful APIs with AI integrations and successfully deployed mobile application to Google Play Store.",
+    "About the Role:": "Primary backend developer responsible for designing and maintaining backend infrastructure from development to production. Designed RESTful APIs with AI integrations and supported the deployment of a production mobile application to the Google Play Store. Collaborated in an Agile environment, contributing to code reviews and iterative feature development.",
     "Skills & Technologies": [
       "Node.js",
       "Express.js",
       "TypeScript",
       "JavaScript",
       "React Native",
-      "CI/CD",
       "PostgreSQL",
       "Docker",
       "Azure",
+      "CI/CD",
       "REST APIs",
       "AI Integration",
       "Swagger"
@@ -93,7 +93,7 @@ export const workExperience = [
     company: "Freelance",
     timeline: "Jan 2025 – Present",
     location: "Remote",
-    "About the Role:": "Designed AI-powered web prototypes with fine-tuned LLMs (GPT, Gemini), integrated into full-stack apps and enhanced LLMs accuracy on programming and voice datasets, improving benchmark performance. Evaluated multiple LLMs and delivered optimization recommendations, improving reliability in production use. Contributed to Agile teams via code reviews and iterative feature delivery, ensuring timely delivery.",
+    "About the Role:": "Designed AI-powered web prototypes using GPT and Gemini models, integrated into full-stack applications. Optimized LLM-based workflows to improve response quality, reliability, and production readiness. Evaluated multiple LLMs and delivered optimization recommendations for real-world use cases. Contributed to Agile-style workflows through code reviews and iterative feature delivery.",
     "Skills & Technologies": [
       "Next.js",
       "React",
