@@ -69,8 +69,8 @@ export const workExperience = [
     title: "Backend Developer Intern",
     company: "Epapa",
     timeline: "Sep 2024 - Dec 2024",
-    location: "Berlin, Germany (Remote from United Kingdom)",
-    "About the Role:": "Primary backend developer responsible for designing and maintaining backend infrastructure from development to production. Designed RESTful APIs with AI integrations and supported the deployment of a production mobile application to the Google Play Store. Collaborated in an Agile environment, contributing to code reviews and iterative feature development.",
+    location: "Berlin, Germany (Remote)",
+    "About the Role:": "Contributed to backend development and deployment workflows for a production mobile application, working across API design, PostgreSQL optimization, Docker-based environments, and CI/CD processes. Collaborated with cross-functional teams in Agile delivery workflows.",
     "Skills & Technologies": [
       "Node.js",
       "Express.js",
@@ -89,11 +89,11 @@ export const workExperience = [
   {
     id: 2,
     logo: "/freelance.svg",
-    title: "Full-Stack and AI Application Developer (LLMs & Generative AI)",
+    title: "Full-Stack & AI Integration Engineer",
     company: "Freelance",
     timeline: "Jan 2025 – Present",
     location: "Remote",
-    "About the Role:": "Designed AI-powered web prototypes using GPT and Gemini models, integrated into full-stack applications. Optimized LLM-based workflows to improve response quality, reliability, and production readiness. Evaluated multiple LLMs and delivered optimization recommendations for real-world use cases. Contributed to Agile-style workflows through code reviews and iterative feature delivery.",
+    "About the Role:": "Worked on AI-integrated application workflows involving GPT- and Gemini-based systems, contributing to response evaluation, workflow optimization, testing, documentation, and iterative improvement processes within distributed Agile teams.",
     "Skills & Technologies": [
       "Next.js",
       "React",
