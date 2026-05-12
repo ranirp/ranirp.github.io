@@ -26,14 +26,18 @@ export const TextGenerateEffect = ({
     const wordsArray = words.split(" ");
     return (
       <motion.div ref={scope}>
-        {wordsArray.map((word, idx) => (
-          <motion.span
-            key={word + idx}
-            className={`${idx > 5 ? "text-purple" : "dark:text-white text-black"} opacity-0`}
-          >
-            {word}{" "}
-          </motion.span>
-        ))}
+        {wordsArray.map((word, idx) => {
+          const normalized = word.replace(/[^\w']/g, "");
+          const isPurple = idx > 2 || normalized === "I'm" || normalized === "Rani";
+          return (
+            <motion.span
+              key={word + idx}
+              className={`${isPurple ? "text-purple" : "dark:text-white text-black"} opacity-0`}
+            >
+              {word}{" "}
+            </motion.span>
+          );
+        })}
       </motion.div>
     );
   };
