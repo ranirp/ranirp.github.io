@@ -2,86 +2,76 @@ import React from 'react';
 import { GlowingEffect } from "@/components/ui/GlowingEffect";
 import { skills } from '@/data';
 import {
-    SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiTailwindcss,
-    SiNodedotjs, SiExpress, SiPython, SiFlask, SiFastapi, SiPostman, SiSwagger, SiJira, SiTestinglibrary, SiPostgresql, SiMongodb, SiMysql, SiSqlite, SiGit, SiGithub, SiGitlab, SiFirebase, SiDocker, SiKubernetes, SiGithubactions, SiJenkins, SiFigma
+    SiJavascript, SiTypescript, SiReact, SiNextdotjs,
+    SiNodedotjs, SiExpress, SiPython, SiFlask, SiFastapi,
+    SiPostman, SiSwagger, SiJira, SiPostgresql, SiMongodb,
+    SiMysql, SiGit, SiGithub, SiGitlab, SiFirebase,
+    SiDocker, SiKubernetes, SiGithubactions
 } from 'react-icons/si';
-import { FaCode, FaMicrosoft, FaTools, FaInfinity, FaKey, FaMobileAlt } from 'react-icons/fa';
-import { BsCodeSlash } from 'react-icons/bs';
-import { GiPill } from 'react-icons/gi';
-import { BiCube } from 'react-icons/bi';
-import { FiLayers } from 'react-icons/fi';
+import { FaCode, FaMicrosoft, FaInfinity, FaKey, FaMobileAlt } from 'react-icons/fa';
+import { FiLayers, FiServer, FiTool, FiRotateCw, FiFileText } from 'react-icons/fi';
+import { MdApi } from 'react-icons/md';
 
-// Color mappings for different skill categories
-const categoryColors = {
-    "Programming & Frameworks": "from-blue-500/20 to-cyan-500/20",
-    "APIs & Security": "from-green-500/20 to-emerald-500/20",
-    Databases: "from-purple-500/20 to-violet-500/20",
-    "Cloud & DevOps": "from-pink-500/20 to-rose-500/20",
-    "Architecture & Practices": "from-orange-500/20 to-amber-500/20",
-    "Workflow & Tools": "from-gray-500/20 to-slate-500/20",
+// Card background gradients per category
+const categoryColors: Record<string, string> = {
+    "Backend & Full-Stack Engineering": "from-blue-500/10 to-green-500/10",
+    "APIs & System Design": "from-teal-500/10 to-purple-500/10",
+    "Databases & Cloud": "from-purple-500/10 to-pink-500/10",
+    "Delivery & DevOps": "from-orange-500/10 to-amber-500/10",
+    "Architecture & Collaboration": "from-pink-500/10 to-teal-500/10",
 };
 
-// Enhanced icon colors with more vibrant colors that work on both light and dark backgrounds
-const iconColors = {
-    "Programming & Frameworks": "text-blue-600 dark:text-blue-400",
-    "APIs & Security": "text-green-600 dark:text-green-400",
-    Databases: "text-purple-600 dark:text-purple-400",
-    "Cloud & DevOps": "text-pink-600 dark:text-pink-400",
-    "Architecture & Practices": "text-orange-600 dark:text-orange-400",
-    "Workflow & Tools": "text-slate-600 dark:text-slate-400",
+// Category icon colors (used for the header icon only)
+const iconColors: Record<string, string> = {
+    "Backend & Full-Stack Engineering": "text-blue-600 dark:text-blue-400",
+    "APIs & System Design": "text-teal-600 dark:text-teal-400",
+    "Databases & Cloud": "text-purple-600 dark:text-purple-400",
+    "Delivery & DevOps": "text-orange-600 dark:text-orange-400",
+    "Architecture & Collaboration": "text-pink-600 dark:text-pink-400",
 };
 
-// Enhanced technology icon mapping with specific colors for each technology
-const techIcons = {
-    // Programming & Frameworks - with specific colors
-    "Java": { icon: FaCode, color: 'text-yellow-600' },
-    'Python': { icon: SiPython, color: 'text-blue-500' },
-    'JavaScript (ES6+)': { icon: SiJavascript, color: 'text-yellow-500' },
-    'TypeScript': { icon: SiTypescript, color: 'text-blue-600' },
-    'Node.js': { icon: SiNodedotjs, color: 'text-green-600' },
-    'Express': { icon: SiExpress, color: 'text-gray-700 dark:text-gray-300' },
-    'React': { icon: SiReact, color: 'text-cyan-500' },
-    'Next.js': { icon: SiNextdotjs, color: 'text-gray-900 dark:text-white' },
-    'Flask': { icon: SiFlask, color: 'text-gray-700 dark:text-gray-300' },
-    'Tailwind CSS': { icon: SiTailwindcss, color: 'text-cyan-500' },
+// Per-technology icon + badge colur
+const techIcons: Record<string, { icon: React.ComponentType<any>; color: string; badge: string }> = {
+    // Backend & Full-Stack
+    "Node.js": { icon: SiNodedotjs, color: "text-green-600", badge: "bg-green-50  dark:bg-green-950  text-green-800  dark:text-green-200  border-green-300  dark:border-green-700" },
+    "TypeScript": { icon: SiTypescript, color: "text-blue-600", badge: "bg-blue-50   dark:bg-blue-950   text-blue-800   dark:text-blue-200   border-blue-300   dark:border-blue-700" },
+    "JavaScript": { icon: SiJavascript, color: "text-yellow-500", badge: "bg-yellow-50 dark:bg-yellow-950 text-yellow-800 dark:text-yellow-200 border-yellow-300 dark:border-yellow-700" },
+    "Express.js": { icon: SiExpress, color: "text-gray-700 dark:text-gray-300", badge: "bg-gray-50  dark:bg-gray-900   text-gray-700   dark:text-gray-300   border-gray-300   dark:border-gray-600" },
+    "React": { icon: SiReact, color: "text-cyan-500", badge: "bg-cyan-50   dark:bg-cyan-950   text-cyan-800   dark:text-cyan-200   border-cyan-300   dark:border-cyan-700" },
+    "Next.js": { icon: SiNextdotjs, color: "text-gray-900 dark:text-white", badge: "bg-gray-50  dark:bg-gray-900   text-gray-800   dark:text-gray-200   border-gray-300   dark:border-gray-600" },
+    "Python": { icon: SiPython, color: "text-blue-500", badge: "bg-blue-50   dark:bg-blue-950   text-blue-800   dark:text-blue-200   border-blue-300   dark:border-blue-700" },
+    "Flask": { icon: SiFlask, color: "text-gray-700 dark:text-gray-300", badge: "bg-gray-50  dark:bg-gray-900   text-gray-700   dark:text-gray-300   border-gray-300   dark:border-gray-600" },
 
-    // APIs & Security - with specific colors
-    'REST APIs': { icon: FaCode, color: 'text-blue-600' },
-    'FastAPI': { icon: SiFastapi, color: 'text-green-600' },
-    'OAuth 2.0': { icon: FaKey, color: 'text-red-600' },
-    'JWT': { icon: FaKey, color: 'text-yellow-600' },
-    'Swagger / OpenAPI': { icon: SiSwagger, color: 'text-green-600' },
-    'Postman': { icon: SiPostman, color: 'text-orange-500' },
+    // APIs & System Design
+    "REST APIs": { icon: MdApi, color: "text-teal-600", badge: "bg-teal-50   dark:bg-teal-950   text-teal-800   dark:text-teal-200   border-teal-300   dark:border-teal-700" },
+    "OpenAPI / Swagger": { icon: SiSwagger, color: "text-green-600", badge: "bg-green-50  dark:bg-green-950  text-green-800  dark:text-green-200  border-green-300  dark:border-green-700" },
+    "OAuth 2.0": { icon: FaKey, color: "text-red-600", badge: "bg-red-50    dark:bg-red-950    text-red-800    dark:text-red-200    border-red-300    dark:border-red-700" },
+    "JWT": { icon: FaKey, color: "text-yellow-600", badge: "bg-yellow-50 dark:bg-yellow-950 text-yellow-800 dark:text-yellow-200 border-yellow-300 dark:border-yellow-700" },
+    "FastAPI": { icon: SiFastapi, color: "text-teal-600", badge: "bg-teal-50   dark:bg-teal-950   text-teal-800   dark:text-teal-200   border-teal-300   dark:border-teal-700" },
+    "Postman": { icon: SiPostman, color: "text-orange-500", badge: "bg-orange-50 dark:bg-orange-950 text-orange-800 dark:text-orange-200 border-orange-300 dark:border-orange-700" },
 
-    // Database - with specific colors
-    'PostgreSQL': { icon: SiPostgresql, color: 'text-blue-600' },
-    'MongoDB': { icon: SiMongodb, color: 'text-green-600' },
-    'MySQL': { icon: SiMysql, color: 'text-orange-600' },
-    'SQLite': { icon: SiSqlite, color: 'text-blue-500' },
+    // Databases & Cloud
+    "PostgreSQL": { icon: SiPostgresql, color: "text-blue-600", badge: "bg-blue-50   dark:bg-blue-950   text-blue-800   dark:text-blue-200   border-blue-300   dark:border-blue-700" },
+    "MongoDB": { icon: SiMongodb, color: "text-green-600", badge: "bg-green-50  dark:bg-green-950  text-green-800  dark:text-green-200  border-green-300  dark:border-green-700" },
+    "MySQL": { icon: SiMysql, color: "text-orange-600", badge: "bg-orange-50 dark:bg-orange-950 text-orange-800 dark:text-orange-200 border-orange-300 dark:border-orange-700" },
+    "Azure": { icon: FaMicrosoft, color: "text-blue-600", badge: "bg-blue-50   dark:bg-blue-950   text-blue-800   dark:text-blue-200   border-blue-300   dark:border-blue-700" },
+    "Docker": { icon: SiDocker, color: "text-blue-600", badge: "bg-blue-50   dark:bg-blue-950   text-blue-800   dark:text-blue-200   border-blue-300   dark:border-blue-700" },
+    "Firebase": { icon: SiFirebase, color: "text-orange-500", badge: "bg-orange-50 dark:bg-orange-950 text-orange-800 dark:text-orange-200 border-orange-300 dark:border-orange-700" },
 
-    // Cloud & DevOps - with specific colors
-    'Azure': { icon: FaMicrosoft, color: 'text-blue-600' },
-    'Firebase': { icon: SiFirebase, color: 'text-orange-500' },
-    'Docker': { icon: SiDocker, color: 'text-blue-600' },
-    'Kubernetes (basic)': { icon: SiKubernetes, color: 'text-blue-600' },
-    'CI/CD': { icon: FaInfinity, color: 'text-teal-600' },
-    'GitHub Actions': { icon: SiGithubactions, color: 'text-gray-900 dark:text-white' },
-    'Jenkins': { icon: SiJenkins, color: 'text-red-600' },
+    // Delivery & DevOps
+    "CI/CD": { icon: FaInfinity, color: "text-teal-600", badge: "bg-teal-50   dark:bg-teal-950   text-teal-800   dark:text-teal-200   border-teal-300   dark:border-teal-700" },
+    "GitHub Actions": { icon: SiGithubactions, color: "text-gray-900 dark:text-white", badge: "bg-gray-50  dark:bg-gray-900   text-gray-800   dark:text-gray-200   border-gray-300   dark:border-gray-600" },
+    "Kubernetes (basic)": { icon: SiKubernetes, color: "text-blue-600", badge: "bg-blue-50   dark:bg-blue-950   text-blue-800   dark:text-blue-200   border-blue-300   dark:border-blue-700" },
+    "Git": { icon: SiGit, color: "text-orange-600", badge: "bg-orange-50 dark:bg-orange-950 text-orange-800 dark:text-orange-200 border-orange-300 dark:border-orange-700" },
+    "GitLab": { icon: SiGitlab, color: "text-orange-600", badge: "bg-orange-50 dark:bg-orange-950 text-orange-800 dark:text-orange-200 border-orange-300 dark:border-orange-700" },
 
-    // Architecture & Practices - with specific colors
-    'Progressive Web Apps (PWAs)': { icon: FaMobileAlt, color: 'text-teal-500' },
-    'Modular Architecture': { icon: FiLayers, color: 'text-indigo-600' },
-    'SOLID Principles': { icon: FiLayers, color: 'text-emerald-500' },
-    'Clean Code (KISS, DRY, YAGNI)': { icon: FiLayers, color: 'text-amber-500' },
-
-    // Workflow & Tools - with specific colors
-    'Agile / Scrum': { icon: FaTools, color: 'text-orange-600' },
-    'Git': { icon: SiGit, color: 'text-orange-600' },
-    'GitHub': { icon: SiGithub, color: 'text-gray-900 dark:text-white' },
-    'GitLab': { icon: SiGitlab, color: 'text-orange-600' },
-    'Test-Driven Development (TDD)': { icon: SiTestinglibrary, color: 'text-red-600' },
-    'Jira': { icon: SiJira, color: 'text-blue-600' },
-    'Figma': { icon: SiFigma, color: 'text-purple-600' },
+    // Architecture & Collaboration
+    "Modular Architecture": { icon: FiLayers, color: "text-indigo-600", badge: "bg-indigo-50 dark:bg-indigo-950 text-indigo-800 dark:text-indigo-200 border-indigo-300 dark:border-indigo-700" },
+    "SOLID Principles": { icon: FiLayers, color: "text-emerald-600", badge: "bg-emerald-50 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-200 border-emerald-300 dark:border-emerald-700" },
+    "Progressive Web Apps": { icon: FaMobileAlt, color: "text-teal-500", badge: "bg-teal-50   dark:bg-teal-950   text-teal-800   dark:text-teal-200   border-teal-300   dark:border-teal-700" },
+    "Agile / Scrum": { icon: FiRotateCw, color: "text-orange-600", badge: "bg-orange-50 dark:bg-orange-950 text-orange-800 dark:text-orange-200 border-orange-300 dark:border-orange-700" },
+    "Jira": { icon: SiJira, color: "text-blue-600", badge: "bg-blue-50   dark:bg-blue-950   text-blue-800   dark:text-blue-200   border-blue-300   dark:border-blue-700" },
+    "Technical Documentation": { icon: FiFileText, color: "text-gray-600", badge: "bg-gray-50   dark:bg-gray-900   text-gray-700   dark:text-gray-300   border-gray-300   dark:border-gray-600" },
 };
 
 interface SkillGridItemProps {
@@ -99,10 +89,10 @@ const SkillGridItem = ({
     title,
     technologies,
     description,
-    category
+    category,
 }: SkillGridItemProps) => {
-    const colorClass = categoryColors[category as keyof typeof categoryColors];
-    const iconColorClass = iconColors[category as keyof typeof iconColors];
+    const colorClass = categoryColors[category] ?? "from-gray-500/10 to-gray-500/10";
+    const iconColorClass = iconColors[category] ?? "text-gray-600 dark:text-gray-400";
 
     return (
         <li className={`min-h-[14rem] list-none ${span}`}>
@@ -117,35 +107,36 @@ const SkillGridItem = ({
                     inactiveZone={0.01}
                 />
                 <div className={`relative flex h-full flex-col gap-3 justify-between overflow-hidden rounded-xl p-6 md:p-6 bg-gradient-to-br ${colorClass} backdrop-blur-sm dark:shadow-[0px_0px_27px_0px_#2D2D2D]`}>
-                    <div className="relative flex flex-1 flex-col gap-4 ">
-                        {/* Icon and Title */}
+                    <div className="relative flex flex-1 flex-col gap-4">
+                        {/* Icon + Title */}
                         <div className="flex items-center gap-3 mb-2">
                             <div className="w-fit rounded-lg border border-gray-300 dark:border-gray-600 p-2 bg-white/90 dark:bg-gray-800/90 shadow-sm">
                                 <Icon className={`h-5 w-5 ${iconColorClass}`} />
                             </div>
-                            <h3 className="font-sans text-xl/[1.375rem] font-semibold text-balance text-transparent bg-clip-text bg-gradient-to-r from-black via-black-100 to-black-200 dark:from-white dark:via-white-100 dark:to-white-200">
+                            <h3 className="font-sans text-xl/[1.375rem] font-semibold text-balance text-gray-900 dark:text-white">
                                 {title}
                             </h3>
                         </div>
 
-                        {/* Content */}
+                        {/* Description + Badges */}
                         <div className="space-y-6">
                             <p className="font-sans text-gray-700 md:text-lg/[1.375rem] dark:text-gray-300">
                                 {description}
                             </p>
-                            {/* Technologies - Display all with colorful icons */}
+
                             <div className="flex flex-wrap gap-2">
                                 {technologies.map((tech, index) => {
                                     const techData = techIcons[tech];
                                     const TechIcon = techData?.icon;
-                                    const iconColor = techData?.color || 'text-gray-600 dark:text-gray-400';
+                                    const iconColor = techData?.color ?? "text-gray-600 dark:text-gray-400";
+                                    const badgeClass = techData?.badge ?? "bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-600";
 
                                     return (
                                         <span
                                             key={index}
-                                            className="flex items-center gap-2 px-4 py-2 text-sm font-medium bg-white/80 dark:bg-gray-800/80 text-gray-700 dark:text-gray-300 rounded-full border border-gray-200 dark:border-gray-600 whitespace-nowrap shadow-sm hover:shadow-md transition-shadow duration-200"
+                                            className={`flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-full border whitespace-nowrap shadow-sm hover:shadow-md transition-shadow duration-200 ${badgeClass}`}
                                         >
-                                            {TechIcon && <TechIcon className={`w-6 h-6 ${iconColor}`} />}
+                                            {TechIcon && <TechIcon className={`w-4 h-4 ${iconColor}`} />}
                                             {tech}
                                         </span>
                                     );
@@ -162,14 +153,14 @@ const SkillGridItem = ({
 export function SkillsSection() {
     return (
         <section id="skills" className="py-16 w-full flex flex-col items-center justify-center min-h-screen">
-            {/* Section Header */}
+            {/* Header */}
             <div className="w-full flex flex-col justify-center items-center mb-16">
                 <h1 className="heading text-center">
-                    Technical <span className="text-purple ml-2"> Skills</span>
+                    Technical <span className="text-purple ml-2">Skills</span>
                 </h1>
             </div>
 
-            {/* Auto Grid */}
+            {/* Grid */}
             <ul className="grid grid-cols-1 gap-4 md:grid-cols-12 md:auto-rows-fr lg:gap-4">
                 {skills.map((skill) => (
                     <SkillGridItem
@@ -183,7 +174,7 @@ export function SkillsSection() {
                     />
                 ))}
             </ul>
-        </section >
+        </section>
     );
 }
 

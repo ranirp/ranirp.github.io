@@ -1,4 +1,4 @@
-import { Code, Server, Smartphone, Database, Cloud, Layers, GitBranch, Workflow, Wrench } from 'lucide-react';
+import { Code, Server, Database, Cloud, Layers } from 'lucide-react';
 
 export const navItems = [
   { name: "About", link: "#about" },
@@ -137,100 +137,86 @@ export const dockLinks = [
 
 export const skills = [
   {
-    id: "programming-frameworks",
-    category: "Programming & Frameworks",
+    id: "backend-engineering",
+    category: "Backend & Full-Stack Engineering",
     icon: Code,
-    title: "Programming & Frameworks",
+    title: "Backend & Full-Stack Engineering",
     technologies: [
-      "Java",
-      "Python",
-      "JavaScript (ES6+)",
-      "TypeScript",
       "Node.js",
-      "Express",
+      "TypeScript",
+      "JavaScript",
+      "Express.js",
       "React",
       "Next.js",
-      "Flask",
-      "Tailwind CSS"
+      "Python",
+      "Flask"
     ],
-    description: "Full-stack development with strong backend focus and modern frontend frameworks",
+    description: "Developing scalable web applications and backend services for production environments",
     span: "md:col-span-4"
   },
   {
-    id: "apis-security",
-    category: "APIs & Security",
+    id: "api-system-design",
+    category: "APIs & System Design",
     icon: Server,
-    title: "APIs & Security",
+    title: "APIs & System Design",
     technologies: [
       "REST APIs",
-      "FastAPI",
+      "OpenAPI / Swagger",
       "OAuth 2.0",
       "JWT",
-      "Swagger / OpenAPI",
+      "FastAPI",
       "Postman"
     ],
-    description: "Designing secure, well-documented APIs for production systems",
+    description: "Designing secure APIs, structured workflows, and maintainable backend systems",
     span: "md:col-span-4"
   },
   {
-    id: "databases",
-    category: "Databases",
+    id: "databases-cloud",
+    category: "Databases & Cloud",
     icon: Database,
-    title: "Databases",
+    title: "Databases & Cloud",
     technologies: [
       "PostgreSQL",
       "MongoDB",
       "MySQL",
-      "SQLite"
-    ],
-    description: "Schema design, query optimization, and data modeling",
-    span: "md:col-span-4"
-  },
-  {
-    id: "cloud-devops",
-    category: "Cloud & DevOps",
-    icon: Cloud,
-    title: "Cloud & DevOps",
-    technologies: [
       "Azure",
       "Docker",
-      "Kubernetes (basic)",
-      "CI/CD",
-      "GitHub Actions",
       "Firebase"
     ],
-    description: "Cloud deployment, containerization, and automated delivery pipelines",
+    description: "Working with cloud infrastructure, database optimization, and deployment environments",
     span: "md:col-span-4"
   },
   {
-    id: "architecture-practices",
-    category: "Architecture & Practices",
-    icon: Layers,
-    title: "Architecture & Practices",
+    id: "delivery-devops",
+    category: "Delivery & DevOps",
+    icon: Cloud,
+    title: "Delivery & DevOps",
     technologies: [
-      "Progressive Web Apps (PWAs)",
+      "CI/CD",
+      "GitHub Actions",
+      "Docker",
+      "Kubernetes (basic)",
+      "Git",
+      "GitLab"
+    ],
+    description: "Supporting deployment workflows, automation, and collaborative delivery processes",
+    span: "md:col-span-6"
+  },
+  {
+    id: "architecture-collaboration",
+    category: "Architecture & Collaboration",
+    icon: Layers,
+    title: "Architecture & Collaboration",
+    technologies: [
       "Modular Architecture",
       "SOLID Principles",
-      "Clean Code (KISS, DRY, YAGNI)"
-    ],
-    description: "Maintainable and scalable system design following best practices",
-    span: "md:col-span-4"
-  },
-  {
-    id: "workflow-tools",
-    category: "Workflow & Tools",
-    icon: Workflow,
-    title: "Workflow & Tools",
-    technologies: [
+      "Progressive Web Apps",
       "Agile / Scrum",
-      "Git",
-      "GitHub",
-      "GitLab",
-      "Test-Driven Development (TDD)",
-      "Jira"
+      "Jira",
+      "Technical Documentation"
     ],
-    description: "Collaborative development using Agile workflows and version control",
-    span: "md:col-span-4"
+    description: "Contributing to scalable system design and cross-functional Agile workflows",
+    span: "md:col-span-6"
   }
 ];
 
