@@ -86,7 +86,7 @@ export const workExperience = [
       "LLM Fine-tuning",
       "Agile Development"
     ],
-  }
+  },
   {
     id: 2,
     logo: "/epapa.jpeg",
@@ -109,7 +109,7 @@ export const workExperience = [
       "AI Integration",
       "Swagger"
     ],
-  },
+  }
 ];
 
 export const dockLinks = [
