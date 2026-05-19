@@ -66,7 +66,7 @@ export const workExperience = [
   {
     id: 1,
     logo: "/epapa.jpeg",
-    title: "Backend Developer Intern",
+    title: "Backend Engineer & Technical Delivery Contributor",
     company: "Epapa",
     timeline: "Sep 2024 - Dec 2024",
     location: "Berlin, Germany (Remote)",
@@ -89,11 +89,11 @@ export const workExperience = [
   {
     id: 2,
     logo: "/freelance.svg",
-    title: "Full-Stack & AI Integration Engineer",
-    company: "Freelance",
+    title: "Technical Evaluation & AI Quality Analyst",
+    company: "Alignerr | Freelance",
     timeline: "Jan 2025 – Present",
     location: "Remote",
-    "About the Role:": "Worked on AI-integrated application workflows involving GPT- and Gemini-based systems, contributing to response evaluation, workflow optimization, testing, documentation, and iterative improvement processes within distributed Agile teams.",
+    "About the Role:": "Worked on AI-integrated application workflows involving GPT and Gemini-based systems, contributing to response evaluation, workflow optimization, testing, documentation, and iterative improvement processes within distributed Agile teams.",
     "Skills & Technologies": [
       "Next.js",
       "React",
