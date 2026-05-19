@@ -64,7 +64,7 @@ export const projects = [
 
 export const workExperience = [
   {
-    id: 1,
+    id: 2,
     logo: "/epapa.jpeg",
     title: "Backend Engineer & Technical Delivery Contributor",
     company: "Epapa",
@@ -87,7 +87,7 @@ export const workExperience = [
     ],
   },
   {
-    id: 2,
+    id: 1,
     logo: "/freelance.svg",
     title: "Technical Evaluation & AI Quality Analyst",
     company: "Alignerr",
