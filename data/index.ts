@@ -64,29 +64,6 @@ export const projects = [
 
 export const workExperience = [
   {
-    id: 2,
-    logo: "/epapa.jpeg",
-    title: "Backend Engineer & Technical Delivery Contributor",
-    company: "Epapa",
-    timeline: "Sep 2024 - Dec 2024",
-    location: "Berlin, Germany (Remote)",
-    "About the Role:": "Contributed to backend development and deployment workflows for a production mobile application, working across API design, PostgreSQL optimization, Docker-based environments, and CI/CD processes. Collaborated with cross-functional teams in Agile delivery workflows.",
-    "Skills & Technologies": [
-      "Node.js",
-      "Express.js",
-      "TypeScript",
-      "JavaScript",
-      "React Native",
-      "PostgreSQL",
-      "Docker",
-      "Azure",
-      "CI/CD",
-      "REST APIs",
-      "AI Integration",
-      "Swagger"
-    ],
-  },
-  {
     id: 1,
     logo: "/freelance.svg",
     title: "Technical Evaluation & AI Quality Analyst",
@@ -110,6 +87,29 @@ export const workExperience = [
       "Agile Development"
     ],
   }
+  {
+    id: 2,
+    logo: "/epapa.jpeg",
+    title: "Backend Engineer & Technical Delivery Contributor",
+    company: "Epapa",
+    timeline: "Sep 2024 - Dec 2024",
+    location: "Berlin, Germany (Remote)",
+    "About the Role:": "Contributed to backend development and deployment workflows for a production mobile application, working across API design, PostgreSQL optimization, Docker-based environments, and CI/CD processes. Collaborated with cross-functional teams in Agile delivery workflows.",
+    "Skills & Technologies": [
+      "Node.js",
+      "Express.js",
+      "TypeScript",
+      "JavaScript",
+      "React Native",
+      "PostgreSQL",
+      "Docker",
+      "Azure",
+      "CI/CD",
+      "REST APIs",
+      "AI Integration",
+      "Swagger"
+    ],
+  },
 ];
 
 export const dockLinks = [
