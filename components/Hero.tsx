@@ -84,9 +84,6 @@ const Hero = () => {
               <p className="text-center lg:text-justify md:tracking-wider mb-4 text-sm md:text-base lg:text-base text-neutral-600 dark:text-white-100 lg:max-w-2xl">
                 Alongside software development, I’m increasingly interested in technical analysis, documentation, cross-functional collaboration, and software development lifecycle processes. I enjoy working at the intersection of technology, coordination, and problem-solving across teams and systems.
               </p>
-              <p className="text-center lg:text-justify md:tracking-wider mb-2 text-sm md:text-base lg:text-base text-neutral-600 dark:text-white-100 lg:max-w-2xl">
-                Currently exploring opportunities that combine technical understanding with product, consulting, and delivery-oriented responsibilities.
-              </p>
             </div>
 
             {/* Right side - 3D Image with Floating Dock */}
