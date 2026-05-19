@@ -90,7 +90,7 @@ export const workExperience = [
     id: 2,
     logo: "/freelance.svg",
     title: "Technical Evaluation & AI Quality Analyst",
-    company: "Alignerr | Freelance",
+    company: "Alignerr",
     timeline: "Jan 2025 – Present",
     location: "Remote",
     "About the Role:": "Worked on AI-integrated application workflows involving GPT and Gemini-based systems, contributing to response evaluation, workflow optimization, testing, documentation, and iterative improvement processes within distributed Agile teams.",
