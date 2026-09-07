@@ -9,8 +9,9 @@ type Project = {
   id: number;
   title: string;
   des: string;
+  demonstrate: string;
   img: string;
-  iconLists: string[];
+  technologies: { name: string; icon: string }[];
   link?: string;
   github?: string;
 };
@@ -69,7 +70,7 @@ const ProjectCarousel = ({ projects }: { projects: Project[] }) => {
                   {slideProjects.map((project, idx) => (
                     <div
                       key={project.id}
-                      className="rounded-xl border border-neutral-200 dark:border-white/[0.2] bg-white dark:bg-slate-950/50 p-6 shadow-lg transition-all duration-300 hover:shadow-xl animate-fadeIn"
+                      className="flex h-full flex-col rounded-xl border border-neutral-200 dark:border-white/[0.2] bg-white dark:bg-slate-950/50 p-6 shadow-lg transition-all duration-300 hover:shadow-xl animate-fadeIn"
                       style={{
                         animation: `fadeIn 0.5s ease-in-out ${idx * 0.1}s both`
                       }}
@@ -98,35 +99,51 @@ const ProjectCarousel = ({ projects }: { projects: Project[] }) => {
                         </p>
                       </div>
 
-                      {/* Icons and Links */}
-                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-4">
-                        <div className="flex items-center justify-center sm:justify-start gap-2 flex-wrap">
-                          {project.iconLists.map((icon, index) => (
-                            <div
-                              key={index}
-                              className="border border-neutral-200 dark:border-white/[0.2] rounded-full bg-neutral-50 dark:bg-gray-200 w-8 h-8 sm:w-10 sm:h-10 flex justify-center items-center transition-transform hover:scale-110"
-                            >
-                              <img
-                                src={icon}
-                                alt={`Tech ${index + 1}`}
-                                className="w-6 h-6 sm:w-6 sm:h-6 object-contain"
-                              />
-                            </div>
-                          ))}
+                      {/* Demonstrates */}
+                      <div className="mb-6 rounded-lg border border-neutral-200 bg-neutral-50/70 px-4 py-3 dark:border-white/[0.12] dark:bg-white/[0.04]">
+                        <p className="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-purple-500 dark:text-purple-300">
+                          Demonstrates
+                        </p>
+                        <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">
+                          {project.demonstrate}
+                        </p>
+                      </div>
+
+                      {/* Technologies */}
+                      <div className="flex flex-1 flex-col gap-4 pt-4">
+                        <div>
+                          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-neutral-400">
+                            Technologies
+                          </p>
+                          <div className="flex flex-wrap gap-2">
+                            {project.technologies.map((technology) => (
+                              <div
+                                key={technology.name}
+                                className="flex items-center gap-2 rounded-full border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-xs font-medium text-neutral-600 transition-colors hover:border-purple-300 dark:border-white/[0.2] dark:bg-gray-200 dark:text-neutral-700"
+                              >
+                                <img
+                                  src={technology.icon}
+                                  alt=""
+                                  aria-hidden="true"
+                                  className="h-4 w-4 object-contain"
+                                />
+                                <span>{technology.name}</span>
+                              </div>
+                            ))}
+                          </div>
                         </div>
 
-                        <div className="flex items-center justify-center sm:justify-end space-x-4">
+                        {/* Project links */}
+                        <div className="mt-auto flex items-center justify-end gap-3 pt-4">
                           {project.link && (
                             <a
                               href={project.link}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="flex items-center cursor-pointer group"
+                              className="group flex items-center gap-2 rounded-lg bg-neutral-900 px-4 py-2 text-sm font-semibold text-white shadow-md shadow-neutral-900/20 transition-all hover:-translate-y-0.5 hover:bg-neutral-700 hover:shadow-lg dark:bg-slate-200 dark:text-neutral-900 dark:hover:bg-neutral-200"
                             >
-                              <p className="text-sm text-purple-500 font-medium group-hover:text-purple-400 transition-colors">
-                                Live Site
-                              </p>
-                              <FaLocationArrow className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform text-purple-400" />
+                              <span>Live Site</span>
+                              <FaLocationArrow className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                             </a>
                           )}
                           {project.github && (
@@ -134,9 +151,10 @@ const ProjectCarousel = ({ projects }: { projects: Project[] }) => {
                               href={project.github}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="flex items-center justify-center w-8 h-8 rounded-full bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors"
+                              className="flex items-center gap-2 rounded-lg bg-neutral-900 px-4 py-2 text-sm font-semibold text-white shadow-md shadow-neutral-900/20 transition-all hover:-translate-y-0.5 hover:bg-neutral-700 hover:shadow-lg dark:bg-slate-200 dark:text-neutral-900 dark:hover:bg-neutral-200"
                             >
-                              <FaGithub className="w-4 h-4 text-neutral-600 dark:text-neutral-300" />
+                              <FaGithub className="h-4 w-4" />
+                              <span>GitHub</span>
                             </a>
                           )}
                         </div>
