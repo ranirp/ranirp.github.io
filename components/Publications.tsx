@@ -137,7 +137,7 @@ export const CardMeta = ({ item }: { item: PublicationItem }) => {
                     <p><span className="font-semibold">Field of Invention:</span> {item["Field of Invention"]}</p>
                 </>
             )}
-            {item.id === "Paper" && (
+            {item.id === "Research Publication" && (
                 <>
                     <p><span className="font-semibold">Publication:</span> {item["Publication"]}</p>
                     <p><span className="font-semibold">Published In:</span> {item["Published In"]}</p>
@@ -155,7 +155,7 @@ export const CardMeta = ({ item }: { item: PublicationItem }) => {
                         </>
                     ) : (
                         <>
-                            🔗 Read Paper
+                            🔗 Read Publication
                         </>
                     )}
                 </a>
@@ -167,14 +167,14 @@ export const CardMeta = ({ item }: { item: PublicationItem }) => {
 export const Publication = () => {
     // Filter publications by type
     const patents = Publications.filter(item => item.id === "Patent");
-    const papers = Publications.filter(item => item.id === "Paper");
+    const papers = Publications.filter(item => item.id === "Research Publication");
 
     return (
         <section id="publications" className="py-20 w-full flex flex-col items-center justify-center min-h-screen">
             {/* Section Header */}
             <div className="w-full flex justify-center items-center mb-16">
                 <h1 className="heading text-center">
-                    Publi<span className="text-purple">cations</span>
+                    Publications & <span className="text-purple">Intellectual Property</span>
                 </h1>
             </div>
 
@@ -185,18 +185,18 @@ export const Publication = () => {
                     <div className="flex justify-center">
                         <h2 className="text-3xl font-bold text-center text-white">
                             <span> 📄 </span>
-                            Patents
+                            Patent
                         </h2>
                     </div>
                     <HoverEffect items={patents} />
                 </div>
 
                 {/* Papers Section */}
-                <div className="space-y-8 flex flex-col">
+                <div className="space-y-6 flex flex-col">
                     <div className="flex justify-center">
                         <h2 className="text-3xl font-bold text-center text-white">
                             <span> 🔬 </span>
-                            Research Papers
+                            Research Publication
                         </h2>
                     </div>
                     <HoverEffect items={papers} />

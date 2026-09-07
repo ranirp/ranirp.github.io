@@ -261,11 +261,10 @@ export const Publications = [
     "Application Number": "202231031977",
     "Publication Date": "08-07-2022",
     Status: "Published",
-    "Field of Invention": "Communication",
     Link: "Complete Specification.pdf",
   },
   {
-    id: "Paper",
+    id: "Research Publication",
     title: "Spypark: The Innovative Mobile Application for Online Parking System ",
     description: "Discusses the design and impact of a mobile app that revolutionizes urban parking by offering real-time updates and reservation management.",
     Role: "Co-Author",
