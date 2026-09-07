@@ -32,7 +32,7 @@ const Hero = () => {
   }));
 
   return (
-    <div className="pb-10 pt-24 md:pt-28 relative">
+    <div className="pb-40 pt-36 relative">
       <FloatingNav navItems={navItems} />
 
       {/* Spotlights - Fixed positioning and z-index */}
@@ -57,10 +57,10 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 px-4 my-6 md:my-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 lg:gap-20 items-center">
 
             {/* Left side - Text Content */}
-            <div className="flex flex-col items-center lg:items-start justify-start order-1 lg:order-1 lg:col-span-2 lg:pr-8 min-h-[360px] md:min-h-[420px]">
+            <div className="flex flex-col items-center lg:items-start justify-start order-1 lg:order-1 lg:col-span-2 lg:pr-8 min-h-[500px]">
               <div className="mb-2">
                 <span className="inline-flex items-center px-4 py-1 rounded-full text-sm font-medium bg-white/10 dark:bg-gray-700/50 text-white border border-white/20 dark:border-gray-700 backdrop-blur-sm">
                   <span className="w-3 h-3 bg-emerald-600 rounded-full mr-3 shadow-[0_0_10px_rgba(16,185,129,0.8)] animate-pulse"></span>
@@ -79,19 +79,16 @@ const Hero = () => {
               />
 
               <p className="text-center lg:text-justify md:tracking-wider mt-6 mb-4 text-sm md:text-base lg:text-base text-neutral-600 dark:text-white-100 lg:max-w-2xl">
-                Software Engineer with experience in backend and full-stack development and technical delivery for production web and mobile applications. Skilled in Node.js, TypeScript, PostgreSQL, Azure, Docker, and API development, with experience across requirements, development, testing, deployment, documentation, and Agile workflows.
+                Software Engineer with experience in backend and full-stack development for production web and mobile applications, with experience across development, testing, deployment, and Agile workflows.
               </p>
               <p className="text-center lg:text-justify md:tracking-wider mb-4 text-sm md:text-base lg:text-base text-neutral-600 dark:text-white-100 lg:max-w-2xl">
-                Alongside software engineering, I’m particularly interested in requirements analysis, technical documentation, cross-functional coordination, and the processes that connect business needs with technical solutions. I enjoy working across the software development lifecycle, translating requirements into practical solutions and helping move work from development through testing and deployment.
-              </p>
-              <p className="text-center lg:text-justify md:tracking-wider mb-2 text-sm md:text-base lg:text-base text-neutral-600 dark:text-white-100 lg:max-w-2xl">
-                I’m building on this technical foundation toward roles involving technical solutions, implementation, delivery coordination, and business-technology collaboration, combining strong technical understanding with structured problem-solving and effective stakeholder communication.
+                I’m particularly interested in requirements analysis, technical documentation, cross-functional collaboration, and the processes that connect business needs with technical solutions. I enjoy working across the software development lifecycle to help translate requirements into practical solutions and support technical delivery.
               </p>
             </div>
 
             {/* Right side - 3D Image with Floating Dock */}
-            <div className="flex justify-center lg:justify-start order-2 lg:order-2 lg:ml-4">
-              <div className="relative w-full max-w-[24rem] lg:max-w-[28rem]">
+            <div className="flex justify-center lg:justify-start order-2 lg:order-2 lg:col-span-1 lg:ml-8">
+              <div className="relative">
                 <CardContainer className="inter-var">
                   <CardBody className="bg-gray-50 dark:bg-gray-900 relative group/card dark:hover:shadow-2xl dark:hover:shadow-purple/[0.3] dark:border-white-300 border-black-200/[0.3] w-auto sm:w-[25rem] h-auto rounded-xl p-2 border">
                     <CardItem translateZ="100" className="w-full">
