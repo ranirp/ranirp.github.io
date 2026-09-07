@@ -45,7 +45,7 @@ export const projects = [
     technologies: [
       { name: "React", icon: "/react.svg" },
       { name: "Node.js", icon: "/nodejs.png" },
-      { name: "OpenAI", icon: "/OpenAI.png" },
+      { name: "OpenAI API", icon: "/openAI.png" },
       { name: "JavaScript", icon: "/javascript.svg" },
       { name: "RapidAPI", icon: "/rapid.png" },
     ],
