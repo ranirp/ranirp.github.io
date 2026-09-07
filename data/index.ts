@@ -1,4 +1,13 @@
-import { Code, Server, Database, Cloud, Layers } from 'lucide-react';
+import {
+  Blocks,
+  BrainCircuit,
+  Cloud,
+  Code,
+  Database,
+  GitBranch,
+  Network,
+  Server,
+} from 'lucide-react';
 
 export const navItems = [
   { name: "About", link: "#about" },
@@ -128,85 +137,115 @@ export const dockLinks = [
 
 export const skills = [
   {
-    id: "backend-engineering",
+    id: "technical-delivery-collaboration",
+    category: "Technical Delivery & Collaboration",
+    icon: GitBranch,
+    title: "Technical Delivery & Collaboration",
+    description: "Translating requirements into technical tasks and supporting structured software delivery",
+    technologies: [
+      "Requirements Analysis",
+      "Technical Documentation",
+      "Agile / Scrum",
+      "Jira",
+      "Cross-Functional Collaboration",
+      "Software Development Lifecycle",
+    ],
+    span: "md:col-span-6"
+  },
+  {
+    id: "backend-fullstack-engineering",
     category: "Backend & Full-Stack Engineering",
-    icon: Code,
+    icon: Server,
     title: "Backend & Full-Stack Engineering",
+    description: "Building backend services and production web applications",
     technologies: [
       "Node.js",
       "TypeScript",
       "JavaScript",
       "Express.js",
-      "React",
       "Next.js",
+      "React",
       "Python",
-      "Flask"
+      "Flask",
     ],
-    description: "Developing scalable web applications and backend services for production environments",
-    span: "md:col-span-4"
+    span: "md:col-span-6"
   },
   {
-    id: "api-system-design",
+    id: "apis-system-design",
     category: "APIs & System Design",
-    icon: Server,
+    icon: Network,
     title: "APIs & System Design",
+    description: "Designing structured APIs and maintainable backend systems",
     technologies: [
-      "REST APIs",
+      "RESTful APIs",
       "OpenAPI / Swagger",
       "OAuth 2.0",
-      "JWT",
+      "JWT Authentication",
       "FastAPI",
-      "Postman"
+      "Postman",
     ],
-    description: "Designing secure APIs, structured workflows, and maintainable backend systems",
-    span: "md:col-span-4"
+    span: "md:col-span-6"
   },
   {
     id: "databases-cloud",
     category: "Databases & Cloud",
-    icon: Database,
+    icon: Cloud,
     title: "Databases & Cloud",
+    description: "Working with databases, cloud platforms, and deployment environments",
     technologies: [
       "PostgreSQL",
       "MongoDB",
       "MySQL",
-      "Azure",
+      "Microsoft Azure",
+      "Firebase",
       "Docker",
-      "Firebase"
     ],
-    description: "Working with cloud infrastructure, database optimization, and deployment environments",
-    span: "md:col-span-4"
-  },
-  {
-    id: "delivery-devops",
-    category: "Delivery & DevOps",
-    icon: Cloud,
-    title: "Delivery & DevOps",
-    technologies: [
-      "CI/CD",
-      "GitHub Actions",
-      "Docker",
-      "Kubernetes (basic)",
-      "Git",
-      "GitLab"
-    ],
-    description: "Supporting deployment workflows, automation, and collaborative delivery processes",
     span: "md:col-span-6"
   },
   {
-    id: "architecture-collaboration",
-    category: "Architecture & Collaboration",
-    icon: Layers,
-    title: "Architecture & Collaboration",
+    id: "devops-delivery",
+    category: "DevOps & Delivery",
+    icon: GitBranch,
+    title: "DevOps & Delivery",
+    description: "Supporting automation, deployment, and development workflows",
+    technologies: [
+      "CI/CD Pipelines",
+      "GitHub Actions",
+      "Kubernetes",
+      "Git",
+      "GitLab",
+    ],
+    span: "md:col-span-6"
+  },
+  {
+    id: "architecture-engineering-practices",
+    category: "Architecture & Engineering Practices",
+    icon: Blocks,
+    title: "Architecture & Engineering Practices",
+    description: "Applying maintainable design principles and scalable development practices",
     technologies: [
       "Modular Architecture",
       "SOLID Principles",
-      "Progressive Web Apps",
+      "Progressive Web Apps (PWA)",
+      "Technical Documentation",
       "Agile / Scrum",
-      "Jira",
-      "Technical Documentation"
     ],
-    description: "Contributing to scalable system design and cross-functional Agile workflows",
+    span: "md:col-span-6"
+  },
+  {
+    id: "ai-emerging-technologies",
+    category: "AI & Emerging Technologies",
+    icon: BrainCircuit,
+    title: "AI & Emerging Technologies",
+    description: "Working with AI-integrated applications and AI evaluation workflows",
+    technologies: [
+      "OpenAI API",
+      "Google Gemini API",
+      "LangChain",
+      "AI Integration Workflows",
+      "LLM Evaluation & Quality Analysis",
+      "Vector Databases",
+    ],
     span: "md:col-span-6"
   }
 ];

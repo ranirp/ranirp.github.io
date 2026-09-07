@@ -5,7 +5,7 @@ import {
     SiJavascript, SiTypescript, SiReact, SiNextdotjs,
     SiNodedotjs, SiExpress, SiPython, SiFlask, SiFastapi,
     SiPostman, SiSwagger, SiJira, SiPostgresql, SiMongodb,
-    SiMysql, SiGit, SiGithub, SiGitlab, SiFirebase,
+    SiMysql, SiGit, SiGitlab, SiFirebase,
     SiDocker, SiKubernetes, SiGithubactions
 } from 'react-icons/si';
 import { FaCode, FaMicrosoft, FaInfinity, FaKey, FaMobileAlt } from 'react-icons/fa';
@@ -14,23 +14,27 @@ import { MdApi } from 'react-icons/md';
 
 // Card background gradients per category
 const categoryColors: Record<string, string> = {
-    "Backend & Full-Stack Engineering": "from-blue-500/10 to-green-500/10",
-    "APIs & System Design": "from-teal-500/10 to-purple-500/10",
-    "Databases & Cloud": "from-purple-500/10 to-pink-500/10",
-    "Delivery & DevOps": "from-orange-500/10 to-amber-500/10",
-    "Architecture & Collaboration": "from-pink-500/10 to-teal-500/10",
+    "Technical Delivery & Collaboration": "from-slate-500/20 to-cyan-500/10",
+    "Backend & Full-Stack Engineering": "from-blue-500/20 to-emerald-500/10",
+    "APIs & System Design": "from-teal-500/20 to-violet-500/10",
+    "Databases & Cloud": "from-indigo-500/20 to-fuchsia-500/10",
+    "DevOps & Delivery": "from-orange-500/20 to-yellow-500/10",
+    "Architecture & Engineering Practices": "from-pink-500/20 to-lime-500/10",
+    "AI & Emerging Technologies": "from-violet-500/20 to-sky-500/10",
 };
 
 // Category icon colors (used for the header icon only)
 const iconColors: Record<string, string> = {
+    "Technical Delivery & Collaboration": "text-slate-600 dark:text-slate-400",
     "Backend & Full-Stack Engineering": "text-blue-600 dark:text-blue-400",
     "APIs & System Design": "text-teal-600 dark:text-teal-400",
     "Databases & Cloud": "text-purple-600 dark:text-purple-400",
-    "Delivery & DevOps": "text-orange-600 dark:text-orange-400",
-    "Architecture & Collaboration": "text-pink-600 dark:text-pink-400",
+    "DevOps & Delivery": "text-orange-600 dark:text-orange-400",
+    "Architecture & Engineering Practices": "text-pink-600 dark:text-pink-400",
+    "AI & Emerging Technologies": "text-amber-600 dark:text-amber-400",
 };
 
-// Per-technology icon + badge colur
+// Per-technology icon + badge color
 const techIcons: Record<string, { icon: React.ComponentType<any>; color: string; badge: string }> = {
     // Backend & Full-Stack
     "Node.js": { icon: SiNodedotjs, color: "text-green-600", badge: "bg-green-50  dark:bg-green-950  text-green-800  dark:text-green-200  border-green-300  dark:border-green-700" },
@@ -43,10 +47,10 @@ const techIcons: Record<string, { icon: React.ComponentType<any>; color: string;
     "Flask": { icon: SiFlask, color: "text-gray-700 dark:text-gray-300", badge: "bg-gray-50  dark:bg-gray-900   text-gray-700   dark:text-gray-300   border-gray-300   dark:border-gray-600" },
 
     // APIs & System Design
-    "REST APIs": { icon: MdApi, color: "text-teal-600", badge: "bg-teal-50   dark:bg-teal-950   text-teal-800   dark:text-teal-200   border-teal-300   dark:border-teal-700" },
+    "RESTful APIs": { icon: MdApi, color: "text-teal-600", badge: "bg-teal-50   dark:bg-teal-950   text-teal-800   dark:text-teal-200   border-teal-300   dark:border-teal-700" },
     "OpenAPI / Swagger": { icon: SiSwagger, color: "text-green-600", badge: "bg-green-50  dark:bg-green-950  text-green-800  dark:text-green-200  border-green-300  dark:border-green-700" },
     "OAuth 2.0": { icon: FaKey, color: "text-red-600", badge: "bg-red-50    dark:bg-red-950    text-red-800    dark:text-red-200    border-red-300    dark:border-red-700" },
-    "JWT": { icon: FaKey, color: "text-yellow-600", badge: "bg-yellow-50 dark:bg-yellow-950 text-yellow-800 dark:text-yellow-200 border-yellow-300 dark:border-yellow-700" },
+    "JWT Authentication": { icon: FaKey, color: "text-yellow-600", badge: "bg-yellow-50 dark:bg-yellow-950 text-yellow-800 dark:text-yellow-200 border-yellow-300 dark:border-yellow-700" },
     "FastAPI": { icon: SiFastapi, color: "text-teal-600", badge: "bg-teal-50   dark:bg-teal-950   text-teal-800   dark:text-teal-200   border-teal-300   dark:border-teal-700" },
     "Postman": { icon: SiPostman, color: "text-orange-500", badge: "bg-orange-50 dark:bg-orange-950 text-orange-800 dark:text-orange-200 border-orange-300 dark:border-orange-700" },
 
@@ -54,24 +58,37 @@ const techIcons: Record<string, { icon: React.ComponentType<any>; color: string;
     "PostgreSQL": { icon: SiPostgresql, color: "text-blue-600", badge: "bg-blue-50   dark:bg-blue-950   text-blue-800   dark:text-blue-200   border-blue-300   dark:border-blue-700" },
     "MongoDB": { icon: SiMongodb, color: "text-green-600", badge: "bg-green-50  dark:bg-green-950  text-green-800  dark:text-green-200  border-green-300  dark:border-green-700" },
     "MySQL": { icon: SiMysql, color: "text-orange-600", badge: "bg-orange-50 dark:bg-orange-950 text-orange-800 dark:text-orange-200 border-orange-300 dark:border-orange-700" },
-    "Azure": { icon: FaMicrosoft, color: "text-blue-600", badge: "bg-blue-50   dark:bg-blue-950   text-blue-800   dark:text-blue-200   border-blue-300   dark:border-blue-700" },
+    "Microsoft Azure": { icon: FaMicrosoft, color: "text-blue-600", badge: "bg-blue-50   dark:bg-blue-950   text-blue-800   dark:text-blue-200   border-blue-300   dark:border-blue-700" },
     "Docker": { icon: SiDocker, color: "text-blue-600", badge: "bg-blue-50   dark:bg-blue-950   text-blue-800   dark:text-blue-200   border-blue-300   dark:border-blue-700" },
     "Firebase": { icon: SiFirebase, color: "text-orange-500", badge: "bg-orange-50 dark:bg-orange-950 text-orange-800 dark:text-orange-200 border-orange-300 dark:border-orange-700" },
 
     // Delivery & DevOps
-    "CI/CD": { icon: FaInfinity, color: "text-teal-600", badge: "bg-teal-50   dark:bg-teal-950   text-teal-800   dark:text-teal-200   border-teal-300   dark:border-teal-700" },
+    "CI/CD Pipelines": { icon: FaInfinity, color: "text-teal-600", badge: "bg-teal-50   dark:bg-teal-950   text-teal-800   dark:text-teal-200   border-teal-300   dark:border-teal-700" },
     "GitHub Actions": { icon: SiGithubactions, color: "text-gray-900 dark:text-white", badge: "bg-gray-50  dark:bg-gray-900   text-gray-800   dark:text-gray-200   border-gray-300   dark:border-gray-600" },
-    "Kubernetes (basic)": { icon: SiKubernetes, color: "text-blue-600", badge: "bg-blue-50   dark:bg-blue-950   text-blue-800   dark:text-blue-200   border-blue-300   dark:border-blue-700" },
+    "Kubernetes": { icon: SiKubernetes, color: "text-blue-600", badge: "bg-blue-50   dark:bg-blue-950   text-blue-800   dark:text-blue-200   border-blue-300   dark:border-blue-700" },
     "Git": { icon: SiGit, color: "text-orange-600", badge: "bg-orange-50 dark:bg-orange-950 text-orange-800 dark:text-orange-200 border-orange-300 dark:border-orange-700" },
     "GitLab": { icon: SiGitlab, color: "text-orange-600", badge: "bg-orange-50 dark:bg-orange-950 text-orange-800 dark:text-orange-200 border-orange-300 dark:border-orange-700" },
 
     // Architecture & Collaboration
     "Modular Architecture": { icon: FiLayers, color: "text-indigo-600", badge: "bg-indigo-50 dark:bg-indigo-950 text-indigo-800 dark:text-indigo-200 border-indigo-300 dark:border-indigo-700" },
     "SOLID Principles": { icon: FiLayers, color: "text-emerald-600", badge: "bg-emerald-50 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-200 border-emerald-300 dark:border-emerald-700" },
-    "Progressive Web Apps": { icon: FaMobileAlt, color: "text-teal-500", badge: "bg-teal-50   dark:bg-teal-950   text-teal-800   dark:text-teal-200   border-teal-300   dark:border-teal-700" },
+    "Progressive Web Apps (PWA)": { icon: FaMobileAlt, color: "text-teal-500", badge: "bg-teal-50   dark:bg-teal-950   text-teal-800   dark:text-teal-200   border-teal-300   dark:border-teal-700" },
     "Agile / Scrum": { icon: FiRotateCw, color: "text-orange-600", badge: "bg-orange-50 dark:bg-orange-950 text-orange-800 dark:text-orange-200 border-orange-300 dark:border-orange-700" },
     "Jira": { icon: SiJira, color: "text-blue-600", badge: "bg-blue-50   dark:bg-blue-950   text-blue-800   dark:text-blue-200   border-blue-300   dark:border-blue-700" },
     "Technical Documentation": { icon: FiFileText, color: "text-gray-600", badge: "bg-gray-50   dark:bg-gray-900   text-gray-700   dark:text-gray-300   border-gray-300   dark:border-gray-600" },
+
+    // Technical Delivery & Collaboration
+    "Requirements Analysis": { icon: FiTool, color: "text-slate-600", badge: "bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-600" },
+    "Cross-Functional Collaboration": { icon: FiServer, color: "text-cyan-600", badge: "bg-cyan-50 dark:bg-cyan-950 text-cyan-800 dark:text-cyan-200 border-cyan-300 dark:border-cyan-700" },
+    "Software Development Lifecycle": { icon: FiRotateCw, color: "text-indigo-600", badge: "bg-indigo-50 dark:bg-indigo-950 text-indigo-800 dark:text-indigo-200 border-indigo-300 dark:border-indigo-700" },
+
+    // AI & Emerging Technologies
+    "OpenAI API": { icon: FaCode, color: "text-emerald-600", badge: "bg-emerald-50 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-200 border-emerald-300 dark:border-emerald-700" },
+    "Google Gemini API": { icon: FaCode, color: "text-blue-600", badge: "bg-blue-50 dark:bg-blue-950 text-blue-800 dark:text-blue-200 border-blue-300 dark:border-blue-700" },
+    "LangChain": { icon: FiLayers, color: "text-orange-600", badge: "bg-orange-50 dark:bg-orange-950 text-orange-800 dark:text-orange-200 border-orange-300 dark:border-orange-700" },
+    "AI Integration Workflows": { icon: FiTool, color: "text-rose-600", badge: "bg-rose-50 dark:bg-rose-950 text-rose-800 dark:text-rose-200 border-rose-300 dark:border-rose-700" },
+    "LLM Evaluation & Quality Analysis": { icon: FiFileText, color: "text-amber-600", badge: "bg-amber-50 dark:bg-amber-950 text-amber-800 dark:text-amber-200 border-amber-300 dark:border-amber-700" },
+    "Vector Databases": { icon: MdApi, color: "text-violet-600", badge: "bg-violet-50 dark:bg-violet-950 text-violet-800 dark:text-violet-200 border-violet-300 dark:border-violet-700" },
 };
 
 interface SkillGridItemProps {
@@ -95,7 +112,7 @@ const SkillGridItem = ({
     const iconColorClass = iconColors[category] ?? "text-gray-600 dark:text-gray-400";
 
     return (
-        <li className={`min-h-[14rem] list-none ${span}`}>
+        <li className={`list-none min-h-[24rem] ${span}`}>
             <div className="relative h-full rounded-2xl border border-gray-200 dark:border-gray-700 p-2 md:rounded-3xl md:p-3">
                 <GlowingEffect
                     blur={0}
@@ -161,7 +178,7 @@ export function SkillsSection() {
             </div>
 
             {/* Grid */}
-            <ul className="grid grid-cols-1 gap-4 md:grid-cols-12 md:auto-rows-fr lg:gap-4">
+            <ul className="grid w-full max-w-7xl grid-cols-1 gap-4 px-4 md:grid-cols-12 lg:gap-5">
                 {skills.map((skill) => (
                     <SkillGridItem
                         key={skill.id}
