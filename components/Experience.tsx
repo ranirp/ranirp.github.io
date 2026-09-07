@@ -67,16 +67,24 @@ const Experience = () => {
                   <div className="lg:w-3/4 lg:border-l lg:border-slate-700 lg:pl-6 flex flex-col justify-center">
                     <div className="mb-4">
                       <h4 className="text-white font-semibold text-sm md:text-base mb-2 text-left">About the Role:</h4>
-                      <p className="text-justify text-white-100 text-xs md:text-sm lg:text-base leading-relaxed">
-                        {card["About the Role:"]}
-                      </p>
+                      {Array.isArray(card["About the Role:"]) ? (
+                        <ul className="list-disc pl-5 space-y-2 text-left text-white-100 text-xs md:text-sm lg:text-base leading-relaxed">
+                          {card["About the Role:"].map((item: string, itemIndex: number) => (
+                            <li key={itemIndex}>{item}</li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <p className="text-justify text-white-100 text-xs md:text-sm lg:text-base leading-relaxed">
+                          {card["About the Role:"]}
+                        </p>
+                      )}
                     </div>
 
                     {/* Skills & Technologies */}
                     <div className="mb-0">
-                      <h4 className="text-white font-semibold text-sm md:text-base mb-2 text-left">Skills & Technologies:</h4>
+                      <h4 className="text-white font-semibold text-sm md:text-base mb-2 text-left">Key Areas:</h4>
                       <div className="flex flex-wrap gap-1.5">
-                        {card["Skills & Technologies"].map((tech, techIndex) => (
+                        {card["Key Areas"].map((tech, techIndex) => (
                           <span
                             key={techIndex}
                             className="px-2.5 py-1.5 bg-gradient-to-r from-purple/20 to-blue-500/20 

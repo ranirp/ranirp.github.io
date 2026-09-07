@@ -70,21 +70,16 @@ export const workExperience = [
     company: "Alignerr",
     timeline: "Jan 2025 – Present",
     location: "Remote",
-    "About the Role:": "Worked on AI-integrated application workflows involving GPT and Gemini-based systems, contributing to response evaluation, workflow optimization, testing, documentation, and iterative improvement processes within distributed Agile teams.",
-    "Skills & Technologies": [
-      "Next.js",
-      "React",
-      "Node.js",
-      "TypeScript",
-      "Python",
-      "PostgreSQL",
-      "MongoDB",
-      "LangChain",
-      "OpenAI API",
-      "Google Gemini API",
-      "Vector Databases",
-      "LLM Fine-tuning",
-      "Agile Development"
+    "About the Role:": [
+      "Worked on AI evaluation and quality workflows, assessing AI-generated outputs against task-specific requirements and quality criteria. Contributed to testing, documentation, workflow improvement, and iterative evaluation processes within distributed Agile teams."
+    ],
+    "Key Areas": [
+      "AI Evaluation & Quality Analysis",
+      "Requirements & Quality Criteria",
+      "Testing & Validation",
+      "Workflow Improvement",
+      "Technical Documentation",
+      "Agile Collaboration",
     ],
   },
   {
@@ -94,20 +89,16 @@ export const workExperience = [
     company: "Epapa",
     timeline: "Sep 2024 - Dec 2024",
     location: "Berlin, Germany (Remote)",
-    "About the Role:": "Contributed to backend development and deployment workflows for a production mobile application, working across API design, PostgreSQL optimization, Docker-based environments, and CI/CD processes. Collaborated with cross-functional teams in Agile delivery workflows.",
-    "Skills & Technologies": [
-      "Node.js",
-      "Express.js",
-      "TypeScript",
-      "JavaScript",
-      "React Native",
-      "PostgreSQL",
-      "Docker",
-      "Azure",
-      "CI/CD",
-      "REST APIs",
-      "AI Integration",
-      "Swagger"
+    "About the Role:": "Contributed to backend development and technical delivery for a production mobile application, translating product requirements into backend solutions across API design, PostgreSQL optimization, Docker-based environments, and CI/CD workflows. Worked with cross-functional teams across development, testing, deployment, documentation, and Agile delivery processes.",
+    "Key Areas": [
+      "Requirements Translation & Technical Analysis",
+      "Backend Development & API Design",
+      "Testing & Deployment",
+      "PostgreSQL & Database Optimization",
+      "Docker & CI/CD Workflows",
+      "Technical Documentation",
+      "Cross-Functional Collaboration",
+      "Agile Delivery Processes",
     ],
   }
 ];
